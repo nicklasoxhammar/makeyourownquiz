@@ -16,6 +16,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".CreateNewQuiz"
+            android:label="New Quiz">
+        </activity>
     </application>
 
 </manifest>
