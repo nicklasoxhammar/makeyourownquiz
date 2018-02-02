@@ -9,6 +9,9 @@ public class Question {
     String question;
     String[] answers;
     String correctAnswer;
+    String answer;
+
+    boolean answeredCorrectly = false;
 
     Question(String question, String[] answers){
 
@@ -32,4 +35,28 @@ public class Question {
 
         return correctAnswer;
     }
+
+    public void setAnsweredCorrectly(boolean answer){
+
+        answeredCorrectly = answer;
+
+    }
+
+    public boolean getAnsweredCorrectly(){
+
+        return answeredCorrectly;
+    }
+
+    public void setAnswer(String answer){
+
+        this.answer = answer;
+    }
+
+    public String getAnswer(){
+
+        return answer;
+    }
+
+
+
 }

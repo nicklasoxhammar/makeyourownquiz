@@ -1,6 +1,7 @@
 package com.nicklasoxhammar.makeyourownquiz;
 
 import android.util.Log;
+import android.widget.ArrayAdapter;
 
 import java.util.ArrayList;
 
@@ -83,6 +84,11 @@ public class ExampleQuiz {
     public int getMaxScore(){
 
         return maxScore;
+    }
+
+    public ArrayList<Question> getAllQuestions(){
+
+        return questions;
     }
 
 

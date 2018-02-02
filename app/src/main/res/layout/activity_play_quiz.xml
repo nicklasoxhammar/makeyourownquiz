@@ -115,13 +115,13 @@
 
 
         <Button
-            android:id="@+id/playAgainButton"
+            android:id="@+id/showAnswersButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="70dp"
-            android:text="Play again!"
-            android:onClick="playAgain"/>
+            android:text="Answers"
+            android:onClick="showAnswers"/>
 
         <Button
             android:id="@+id/mainMenuButton"
@@ -132,6 +132,46 @@
             android:layout_marginRight="70dp"
             android:text="Main Menu"
             android:onClick="mainMenu"/>
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/answersLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/answers_recycler_view"
+        android:scrollbars="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+        <Button
+            android:id="@+id/playAgainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/answers_recycler_view"
+            android:layout_marginLeft="70dp"
+            android:onClick="playAgain"
+            android:layout_marginTop="10dp"
+            android:text="Play Again!" />
+
+        <Button
+            android:id="@+id/mainMenuButton2"
+            android:layout_below="@id/answers_recycler_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="70dp"
+            android:onClick="mainMenu"
+            android:layout_marginTop="10dp"
+            android:text="Main Menu" />
+
+
     </RelativeLayout>
 
 

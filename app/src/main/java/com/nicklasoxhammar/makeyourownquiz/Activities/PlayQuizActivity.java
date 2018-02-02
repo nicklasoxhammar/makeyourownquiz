@@ -3,18 +3,24 @@ package com.nicklasoxhammar.makeyourownquiz.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.nicklasoxhammar.makeyourownquiz.Adapters.AnswerListAdapter;
 import com.nicklasoxhammar.makeyourownquiz.ExampleQuiz;
 import com.nicklasoxhammar.makeyourownquiz.Question;
 import com.nicklasoxhammar.makeyourownquiz.Quiz;
 import com.nicklasoxhammar.makeyourownquiz.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Nick on 2018-02-02.
@@ -32,8 +38,14 @@ public class PlayQuizActivity extends AppCompatActivity {
 
     RelativeLayout questionLayout;
     RelativeLayout endScreenLayout;
+    RelativeLayout answersLayout;
+
+    RecyclerView answersRecyclerView;
+    RecyclerView.Adapter mAdapter;
 
     Question currentQuestion;
+
+    ArrayAdapter<Question> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +54,9 @@ public class PlayQuizActivity extends AppCompatActivity {
 
         questionLayout = findViewById(R.id.questionLayout);
         endScreenLayout = findViewById(R.id.endScreenLayout);
+        answersLayout = findViewById(R.id.answersLayout);
+        answersRecyclerView = findViewById(R.id.answers_recycler_view);
+
 
         question = findViewById(R.id.questionTextView);
         answer1 = findViewById(R.id.answer1Button);
@@ -51,6 +66,25 @@ public class PlayQuizActivity extends AppCompatActivity {
 
 
         this.quiz = new ExampleQuiz();
+
+
+
+        newGame(quiz);
+    }
+
+    public void newGame(ExampleQuiz Quiz){
+
+        this.quiz = Quiz;
+
+        questionLayout.setVisibility(View.VISIBLE);
+        endScreenLayout.setVisibility(View.GONE);
+        answersLayout.setVisibility(View.GONE);
+
+
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        answersRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new AnswerListAdapter(this, mLayoutManager, quiz.getAllQuestions());
+        answersRecyclerView.setAdapter(mAdapter);
 
         showNextQuestion();
     }
@@ -70,12 +104,19 @@ public class PlayQuizActivity extends AppCompatActivity {
 
     public void checkAnswer(View view){
 
+        Button v = (Button) view;
+
+        currentQuestion.setAnswer(v.getText().toString());
         Button button = (Button) view;
 
         if(button.getText().toString().equals(currentQuestion.getCorrectAnswer())) {
 
             quiz.increaseScore();
+            currentQuestion.setAnsweredCorrectly(true);
         }
+
+
+
 
             if (quiz.lastQuestion()){
                 showEndScreen();
@@ -107,6 +148,16 @@ public class PlayQuizActivity extends AppCompatActivity {
     }
 
     public void playAgain(View view){
+
+        newGame(new ExampleQuiz());
+
+    }
+
+    public void showAnswers(View view){
+
+        questionLayout.setVisibility(View.GONE);
+        endScreenLayout.setVisibility(View.GONE);
+        answersLayout.setVisibility(View.VISIBLE);
 
     }
 }
