@@ -1,9 +1,9 @@
 package com.nicklasoxhammar.makeyourownquiz;
 
-import android.util.Log;
-import android.widget.ArrayAdapter;
-
+import android.os.Parcel;
+import android.os.Parcelable;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static android.content.ContentValues.TAG;
 
@@ -11,7 +11,7 @@ import static android.content.ContentValues.TAG;
  * Created by Nick on 2018-02-02.
  */
 
-public class ExampleQuiz {
+public class ExampleQuiz{
 
     String quizTitle;
 
@@ -33,10 +33,18 @@ public class ExampleQuiz {
 
         questions = new ArrayList<Question>();
 
-        String[] q1Answers = {"red", "black", "white", "green"};
-        String[] q2Answers = {"nick", "black", "white", "green"};
-        String[] q3Answers = {"sweden", "black", "white", "green"};
-        String[] q4Answers = {"stockholm", "black", "white", "green"};
+        ArrayList<String> q1Answers = new ArrayList<String>();
+        q1Answers.addAll(Arrays.asList("red", "black", "white", "green"));
+
+        ArrayList<String> q2Answers = new ArrayList<String>();
+        q2Answers.addAll(Arrays.asList("nick", "black", "white", "green"));
+
+        ArrayList<String> q3Answers = new ArrayList<String>();
+        q3Answers.addAll(Arrays.asList("sweden", "black", "white", "green"));
+
+
+        ArrayList<String> q4Answers = new ArrayList<String>();
+        q4Answers.addAll(Arrays.asList("sweden", "black", "white", "green"));
 
         q1 = new Question("What is the color of my desk?", q1Answers);
         q2 = new Question("Whats my name", q2Answers);
@@ -90,8 +98,6 @@ public class ExampleQuiz {
 
         return questions;
     }
-
-
 
 
 }

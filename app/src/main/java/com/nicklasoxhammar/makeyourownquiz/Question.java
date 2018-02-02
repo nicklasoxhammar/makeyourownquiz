@@ -1,5 +1,9 @@
 package com.nicklasoxhammar.makeyourownquiz;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+
 /**
  * Created by Nick on 2018-02-02.
  */
@@ -7,17 +11,19 @@ package com.nicklasoxhammar.makeyourownquiz;
 public class Question {
 
     String question;
-    String[] answers;
+    ArrayList<String> answers;
     String correctAnswer;
     String answer;
 
     boolean answeredCorrectly = false;
 
-    Question(String question, String[] answers){
+    Question(String question, ArrayList<String> answers){
 
         this.question = question;
         this.answers = answers;
-        this.correctAnswer = answers[0];
+        this.correctAnswer = answers.get(0);
+
+        Collections.shuffle(answers);
 
     }
 
@@ -28,7 +34,7 @@ public class Question {
 
     public String getAnswers(int i){
 
-        return answers[i];
+        return answers.get(i);
     }
 
     public String getCorrectAnswer(){
