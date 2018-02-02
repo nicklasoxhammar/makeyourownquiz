@@ -1,17 +1,19 @@
-package com.nicklasoxhammar.makeyourownquiz;
+package com.nicklasoxhammar.makeyourownquiz.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.nicklasoxhammar.makeyourownquiz.R;
 
 /**
  * Created by Nick on 2018-02-01.
  */
 
-public class CreateNewQuiz extends AppCompatActivity {
+public class CreateNewQuizActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.create_quiz);
+        setContentView(R.layout.activity_create_quiz);
     }
 }
