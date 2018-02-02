@@ -22,4 +22,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    public void playQuiz(View view){
+
+        Intent intent = new Intent(MainActivity.this, PlayQuizActivity.class);
+        startActivity(intent);
+
+    }
 }

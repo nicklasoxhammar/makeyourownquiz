@@ -16,7 +16,7 @@ public class Quiz {
     int currentPoints;
 
 
-    Quiz(ArrayList<Question> questions, String quizTitle){
+    public Quiz(ArrayList<Question> questions, String quizTitle){
 
         this.questions = questions;
         maxPoints = questions.size();

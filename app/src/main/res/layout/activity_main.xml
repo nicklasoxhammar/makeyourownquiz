@@ -23,5 +23,6 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/playbutton"
         android:layout_centerHorizontal="true"
+        android:onClick="playQuiz"
         android:text="Play" />
 </RelativeLayout>

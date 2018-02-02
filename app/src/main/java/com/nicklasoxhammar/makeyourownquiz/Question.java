@@ -17,4 +17,19 @@ public class Question {
         this.correctAnswer = answers[0];
 
     }
+
+    public String getQuestion(){
+
+        return question;
+    }
+
+    public String getAnswers(int i){
+
+        return answers[i];
+    }
+
+    public String getCorrectAnswer(){
+
+        return correctAnswer;
+    }
 }

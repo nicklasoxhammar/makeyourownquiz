@@ -1,6 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</android.support.constraint.ConstraintLayout>
+    <RelativeLayout
+        android:id="@+id/questionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/questionTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="Question?" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/questionTextView"
+            android:layout_marginTop="200dp">
+
+            <Button
+                android:id="@+id/answer1Button"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_row="0"
+                android:layout_rowWeight="1"
+                android:soundEffectsEnabled="false"
+                android:text="Answer1"
+                android:onClick="checkAnswer"
+                android:tag="1"
+                />
+
+            <Button
+                android:id="@+id/answer2Button"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_row="0"
+                android:layout_rowWeight="1"
+                android:soundEffectsEnabled="false"
+                android:text="Answer2"
+                android:onClick="checkAnswer"
+                android:tag="2"
+                />
+
+            <Button
+                android:id="@+id/answer3Button"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_row="1"
+                android:layout_rowWeight="1"
+                android:soundEffectsEnabled="false"
+                android:text="Answer3"
+                android:onClick="checkAnswer"
+                android:tag="3"
+                />
+
+            <Button
+                android:id="@+id/answer4Button"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_row="1"
+                android:layout_rowWeight="1"
+                android:soundEffectsEnabled="false"
+                android:text="Answer4"
+                android:onClick="checkAnswer"
+                android:tag="4"
+                />
+
+        </GridLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/endScreenLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+
+        <TextView
+            android:id="@+id/scoreTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="47dp"
+            android:text="Score" />
+
+
+
+        <Button
+            android:id="@+id/playAgainButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="70dp"
+            android:text="Play again!"
+            android:onClick="playAgain"/>
+
+        <Button
+            android:id="@+id/mainMenuButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="70dp"
+            android:text="Main Menu"
+            android:onClick="mainMenu"/>
+    </RelativeLayout>
+
+
+</RelativeLayout>
