@@ -3,6 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:id="@+id/newQuizMainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
     <EditText
         android:id="@+id/quizNameEditText"
         android:layout_width="wrap_content"
@@ -14,35 +20,124 @@
         android:maxLength="30"
         android:hint="Quiz Name" />
 
-    <ListView
-        android:id="@+id/questionsListView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/quizNameEditText">
-
-
-    </ListView>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/questions_recycler_view"
+            android:layout_below="@+id/quizNameEditText"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
 
     <Button
         android:id="@+id/addQuestionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/questionsListView"
+        android:layout_below="@id/questions_recycler_view"
         android:layout_marginLeft="70dp"
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp"
+        android:onClick="addQuestion"
         android:text="Add Question" />
 
     <Button
         android:id="@+id/createQuizButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/questionsListView"
+        android:layout_below="@id/questions_recycler_view"
         android:layout_marginRight="70dp"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="30dp"
         android:text="Create Quiz" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/newQuestionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+
+        <EditText
+            android:id="@+id/newQuestionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Question?" />
+
+        <EditText
+            android:id="@+id/newQuestionAnswer1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/newQuestionTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:ems="15"
+            android:hint="Write the correct answer here."
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/newQuestionAnswer2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/newQuestionAnswer1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:ems="15"
+            android:hint="Answer 2"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/newQuestionAnswer3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/newQuestionAnswer2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:ems="15"
+            android:hint="Answer 3"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/newQuestionAnswer4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/newQuestionAnswer3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:ems="15"
+            android:hint="Answer 4"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/newQuestionDoneButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/newQuestionAnswer4"
+            android:layout_below="@+id/newQuestionAnswer4"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="70dp"
+            android:layout_alignParentStart="true"
+            android:onClick="createNewQuestion"
+            android:text="Done" />
+
+        <Button
+            android:id="@+id/newQuestionCancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/newQuestionAnswer4"
+            android:layout_marginRight="70dp"
+            android:onClick="cancelNewQuestion"
+            android:text="Cancel" />
+
+
+    </RelativeLayout>
 
 
 </RelativeLayout>

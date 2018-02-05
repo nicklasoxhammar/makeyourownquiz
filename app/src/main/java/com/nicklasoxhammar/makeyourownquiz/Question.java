@@ -17,7 +17,7 @@ public class Question {
 
     boolean answeredCorrectly = false;
 
-    Question(String question, ArrayList<String> answers){
+    public Question(String question, ArrayList<String> answers){
 
         this.question = question;
         this.answers = answers;
