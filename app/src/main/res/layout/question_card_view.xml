@@ -26,14 +26,14 @@
             android:layout_margin="5dp">
 
             <TextView
-                android:id="@+id/answer_card_question_text"
+                android:id="@+id/question_card_question_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="question"
                 />
 
             <TextView
-                android:id="@+id/answer_card_correctanswer_text"
+                android:id="@+id/question_card_correctanswer_text"
                 android:layout_marginTop="20dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

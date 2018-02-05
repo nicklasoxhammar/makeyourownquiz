@@ -2,12 +2,16 @@ package com.nicklasoxhammar.makeyourownquiz.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.nicklasoxhammar.makeyourownquiz.Adapters.AnswerListAdapter;
+import com.nicklasoxhammar.makeyourownquiz.Adapters.QuestionsListAdapter;
 import com.nicklasoxhammar.makeyourownquiz.Question;
 import com.nicklasoxhammar.makeyourownquiz.Quiz;
 import com.nicklasoxhammar.makeyourownquiz.R;
@@ -37,6 +41,9 @@ public class CreateNewQuizActivity extends AppCompatActivity {
     RelativeLayout newQuizMainLayout;
     RelativeLayout newQuestionLayout;
 
+    RecyclerView questionsRecyclerView;
+    RecyclerView.Adapter mAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +52,8 @@ public class CreateNewQuizActivity extends AppCompatActivity {
 
         newQuizMainLayout = findViewById(R.id.newQuizMainLayout);
         newQuestionLayout = findViewById(R.id.newQuestionLayout);
+
+        questionsRecyclerView = findViewById(R.id.questions_recycler_view);
 
         questionTitle = findViewById(R.id.newQuestionTitle);
         questionAnswer1 = findViewById(R.id.newQuestionAnswer1);
@@ -108,6 +117,11 @@ public class CreateNewQuizActivity extends AppCompatActivity {
 
         newQuizMainLayout.setVisibility(View.VISIBLE);
         newQuestionLayout.setVisibility(View.GONE);
+
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        questionsRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new QuestionsListAdapter(this, mLayoutManager, questions);
+        questionsRecyclerView.setAdapter(mAdapter);
 
     }
 
