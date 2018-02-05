@@ -1,6 +1,7 @@
 package com.nicklasoxhammar.makeyourownquiz.Activities;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -12,10 +13,12 @@ import android.widget.Toast;
 
 import com.nicklasoxhammar.makeyourownquiz.Adapters.AnswerListAdapter;
 import com.nicklasoxhammar.makeyourownquiz.Adapters.QuestionsListAdapter;
+import com.nicklasoxhammar.makeyourownquiz.DBHelper;
 import com.nicklasoxhammar.makeyourownquiz.Question;
 import com.nicklasoxhammar.makeyourownquiz.Quiz;
 import com.nicklasoxhammar.makeyourownquiz.R;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -24,7 +27,9 @@ import java.util.ArrayList;
 
 public class CreateNewQuizActivity extends AppCompatActivity {
 
-    public String quizTitle;
+    public EditText quizTitle;
+
+    private DBHelper mDatabase;
 
     public ArrayList<String> questionAnswers;
 
@@ -33,6 +38,9 @@ public class CreateNewQuizActivity extends AppCompatActivity {
     public EditText questionAnswer2;
     public EditText questionAnswer3;
     public EditText questionAnswer4;
+
+    private String mFileName = null;
+    private String mFilePath = null;
 
     Question question;
 
@@ -64,14 +72,13 @@ public class CreateNewQuizActivity extends AppCompatActivity {
         questions = new ArrayList<Question>();
         questionAnswers = new ArrayList<String>();
 
+        mDatabase = new DBHelper(getApplicationContext());
 
-    }
-
-
-    public void createQuiz(){
+        quizTitle = findViewById(R.id.quizNameEditText);
 
 
     }
+
 
     public void addQuestion(View view){
 
@@ -136,6 +143,47 @@ public class CreateNewQuizActivity extends AppCompatActivity {
         newQuizMainLayout.setVisibility(View.VISIBLE);
         newQuestionLayout.setVisibility(View.GONE);
 
+    }
+
+    public void createQuiz(View view){
+
+
+        if (quizTitle.getText().toString().equals("")){
+            Toast toast = Toast.makeText(getApplicationContext(), "You forgot to write the quiz name!", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
+        if (questions.isEmpty()){
+            Toast toast = Toast.makeText(getApplicationContext(), "Add some questions!", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
+        setFileNameAndPath();
+
+        /*try {
+            mDatabase.addQuiz(mFileName, mFilePath);
+
+        } catch (Exception e){
+            Log.e("CreateNewQuizActivity", "exception", e);
+        }*/
+    }
+
+    public void setFileNameAndPath(){
+        int count = 0;
+        File f;
+
+        do{
+            count++;
+
+            mFileName = "myquiz_"
+                    + (mDatabase.getCount() + count);
+            mFilePath = Environment.getExternalStorageDirectory().getAbsolutePath();
+            mFilePath += "/makeyourownquiz/" + mFileName;
+
+            f = new File(mFilePath);
+        }while (f.exists() && !f.isDirectory());
     }
 
 

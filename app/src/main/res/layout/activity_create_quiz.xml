@@ -47,6 +47,7 @@
         android:layout_marginRight="70dp"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="30dp"
+        android:onClick="createQuiz"
         android:text="Create Quiz" />
 
     </RelativeLayout>
