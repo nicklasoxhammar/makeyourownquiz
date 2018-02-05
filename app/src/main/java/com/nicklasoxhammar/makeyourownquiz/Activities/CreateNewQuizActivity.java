@@ -29,7 +29,7 @@ public class CreateNewQuizActivity extends AppCompatActivity {
 
     public void createQuiz(){
 
-        new Quiz(questions, quizTitle);
+
 
     }
 

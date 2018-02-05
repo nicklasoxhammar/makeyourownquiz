@@ -44,7 +44,7 @@ public class ExampleQuiz{
 
 
         ArrayList<String> q4Answers = new ArrayList<String>();
-        q4Answers.addAll(Arrays.asList("sweden", "black", "white", "green"));
+        q4Answers.addAll(Arrays.asList("stockholm", "black", "white", "green"));
 
         q1 = new Question("What is the color of my desk?", q1Answers);
         q2 = new Question("Whats my name", q2Answers);
