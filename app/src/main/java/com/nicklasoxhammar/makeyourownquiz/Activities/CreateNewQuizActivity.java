@@ -7,6 +7,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -70,7 +71,6 @@ public class CreateNewQuizActivity extends AppCompatActivity {
         questionAnswer4 = findViewById(R.id.newQuestionAnswer4);
 
         questions = new ArrayList<Question>();
-        questionAnswers = new ArrayList<String>();
 
 
         quizTitle = findViewById(R.id.quizNameEditText);
@@ -90,12 +90,13 @@ public class CreateNewQuizActivity extends AppCompatActivity {
 
     public void createNewQuestion(View view){
 
-        questionAnswers.clear();
+        questionAnswers = new ArrayList<String>();
 
         questionAnswers.add(questionAnswer1.getText().toString());
         questionAnswers.add(questionAnswer2.getText().toString());
         questionAnswers.add(questionAnswer3.getText().toString());
         questionAnswers.add(questionAnswer4.getText().toString());
+
 
         if(questionTitle.getText().toString().equals("")){
             Toast toast = Toast.makeText(getApplicationContext(), "You forgot to write the question!", Toast.LENGTH_SHORT);
@@ -112,6 +113,7 @@ public class CreateNewQuizActivity extends AppCompatActivity {
                 return;
             }
         }
+
 
         questions.add(new Question(questionTitle.getText().toString(), questionAnswers));
 

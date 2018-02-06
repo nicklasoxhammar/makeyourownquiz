@@ -1,8 +1,12 @@
 package com.nicklasoxhammar.makeyourownquiz;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by Nick on 2018-02-02.
@@ -22,6 +26,12 @@ public class Question {
         this.question = question;
         this.answers = answers;
         this.correctAnswer = answers.get(0);
+
+        for (String a : answers){
+
+            Log.d(TAG, "Question: " + a);
+
+        }
 
         Collections.shuffle(answers);
 

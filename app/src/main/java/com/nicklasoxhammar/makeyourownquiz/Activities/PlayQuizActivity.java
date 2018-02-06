@@ -121,6 +121,15 @@ public class PlayQuizActivity extends AppCompatActivity {
         mAdapter = new AnswerListAdapter(this, mLayoutManager, quiz.getAllQuestions());
         answersRecyclerView.setAdapter(mAdapter);
 
+        for (Question question : quiz.getAllQuestions()){
+
+            Log.d(TAG, "newGame: "+ String.valueOf(question.getAnswers(0)));
+            Log.d(TAG, "newGame: "+ String.valueOf(question.getAnswers(1)));
+            Log.d(TAG, "newGame: "+ String.valueOf(question.getAnswers(2)));
+            Log.d(TAG, "newGame: "+ String.valueOf(question.getAnswers(3)));
+            Log.d(TAG, "newGame: " + question.getCorrectAnswer());
+        }
+
         showNextQuestion();
     }
 
