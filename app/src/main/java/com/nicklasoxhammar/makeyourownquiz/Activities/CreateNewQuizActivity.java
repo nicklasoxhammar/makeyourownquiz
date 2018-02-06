@@ -1,7 +1,9 @@
 package com.nicklasoxhammar.makeyourownquiz.Activities;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,6 +13,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.nicklasoxhammar.makeyourownquiz.Adapters.AnswerListAdapter;
 import com.nicklasoxhammar.makeyourownquiz.Adapters.QuestionsListAdapter;
 import com.nicklasoxhammar.makeyourownquiz.DBHelper;
@@ -19,6 +22,8 @@ import com.nicklasoxhammar.makeyourownquiz.Quiz;
 import com.nicklasoxhammar.makeyourownquiz.R;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -33,6 +38,8 @@ public class CreateNewQuizActivity extends AppCompatActivity {
 
     public ArrayList<String> questionAnswers;
 
+    File f;
+
     public EditText questionTitle;
     public EditText questionAnswer1;
     public EditText questionAnswer2;
@@ -42,7 +49,6 @@ public class CreateNewQuizActivity extends AppCompatActivity {
     private String mFileName = null;
     private String mFilePath = null;
 
-    Question question;
 
     public ArrayList<Question> questions;
 
@@ -160,9 +166,29 @@ public class CreateNewQuizActivity extends AppCompatActivity {
             return;
         }
 
-        setFileNameAndPath();
+        Quiz quiz = new Quiz(questions, quizTitle.getText().toString());
 
-        /*try {
+        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
+        SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(quiz);
+        prefsEditor.putString("myQuiz", json);
+        prefsEditor.commit();
+
+        Log.d("tag", "createQuiz: ");
+
+
+
+        /*setFileNameAndPath();
+
+        try {
+            FileOutputStream fileOutput = new FileOutputStream(f);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+        try {
             mDatabase.addQuiz(mFileName, mFilePath);
 
         } catch (Exception e){
@@ -172,13 +198,12 @@ public class CreateNewQuizActivity extends AppCompatActivity {
 
     public void setFileNameAndPath(){
         int count = 0;
-        File f;
 
         do{
             count++;
 
             mFileName = "myquiz_"
-                    + (mDatabase.getCount() + count);
+                    + (mDatabase.getCount() + count) + ".java";
             mFilePath = Environment.getExternalStorageDirectory().getAbsolutePath();
             mFilePath += "/makeyourownquiz/" + mFileName;
 

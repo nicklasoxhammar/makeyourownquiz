@@ -4,10 +4,24 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:id="@+id/questionLayout"
+        android:id="@+id/my_quizzes_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="visible">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/quizzez_recycler_view"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark"
+            />
+       </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/questionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/questionTextView"

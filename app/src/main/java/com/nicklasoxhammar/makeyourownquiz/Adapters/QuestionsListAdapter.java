@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import com.nicklasoxhammar.makeyourownquiz.Question;
 import com.nicklasoxhammar.makeyourownquiz.R;
 
 import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by Nick on 2018-02-05.
@@ -39,7 +42,7 @@ public static class ViewHolder extends RecyclerView.ViewHolder {
 
         vQuestion = (TextView) v.findViewById(R.id.question_card_question_text);
         vCorrectAnswer = (TextView) v.findViewById(R.id.question_card_correctanswer_text);
-        cardView = v.findViewById(R.id.card_view);
+        cardView = v.findViewById(R.id.card_view_question);
     }
 }
 
@@ -68,6 +71,8 @@ public static class ViewHolder extends RecyclerView.ViewHolder {
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
+
+        Log.d(TAG, "onBindViewHolder: FAFAFAFAFAFAFAK");
 
         question = questions.get(position);
 

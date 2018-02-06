@@ -35,7 +35,7 @@ public class DBHelper extends SQLiteOpenHelper {
             "CREATE TABLE " + DBHelperItem.TABLE_NAME + " (" +
                     DBHelperItem._ID + " INTEGER PRIMARY KEY" + COMMA_SEP +
                     DBHelperItem.COLUMN_NAME_QUIZ_NAME + TEXT_TYPE + COMMA_SEP +
-                    DBHelperItem.COLUMN_NAME_QUIZ_FILE_PATH + TEXT_TYPE + COMMA_SEP + ")";
+                    DBHelperItem.COLUMN_NAME_QUIZ_FILE_PATH + TEXT_TYPE + ")";
 
     @SuppressWarnings("unused")
     private static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + DBHelperItem.TABLE_NAME;

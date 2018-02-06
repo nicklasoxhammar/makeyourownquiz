@@ -1,7 +1,9 @@
 package com.nicklasoxhammar.makeyourownquiz.Activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,12 +15,16 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.nicklasoxhammar.makeyourownquiz.Adapters.AnswerListAdapter;
+import com.nicklasoxhammar.makeyourownquiz.Adapters.QuizListAdapter;
 import com.nicklasoxhammar.makeyourownquiz.ExampleQuiz;
 import com.nicklasoxhammar.makeyourownquiz.Question;
 import com.nicklasoxhammar.makeyourownquiz.Quiz;
 import com.nicklasoxhammar.makeyourownquiz.R;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,9 +45,13 @@ public class PlayQuizActivity extends AppCompatActivity {
     RelativeLayout questionLayout;
     RelativeLayout endScreenLayout;
     RelativeLayout answersLayout;
+    RelativeLayout myQuizzesLayout;
 
     RecyclerView answersRecyclerView;
     RecyclerView.Adapter mAdapter;
+
+    RecyclerView quizzesRecyclerView;
+    RecyclerView.Adapter mAdapterQuiz;
 
     Question currentQuestion;
 
@@ -56,7 +66,8 @@ public class PlayQuizActivity extends AppCompatActivity {
         endScreenLayout = findViewById(R.id.endScreenLayout);
         answersLayout = findViewById(R.id.answersLayout);
         answersRecyclerView = findViewById(R.id.answers_recycler_view);
-
+        myQuizzesLayout = findViewById(R.id.my_quizzes_layout);
+        quizzesRecyclerView = findViewById(R.id.quizzez_recycler_view);
 
         question = findViewById(R.id.questionTextView);
         answer1 = findViewById(R.id.answer1Button);
@@ -64,15 +75,37 @@ public class PlayQuizActivity extends AppCompatActivity {
         answer3 = findViewById(R.id.answer3Button);
         answer4 = findViewById(R.id.answer4Button);
 
+        SharedPreferences appSharedPrefs = PreferenceManager
+                .getDefaultSharedPreferences(this.getApplicationContext());
+        Gson gson = new Gson();
+        String json = appSharedPrefs.getString("myQuiz", "");
+        Quiz mQuizObject = gson.fromJson(json, Quiz.class);
+        /*Type type = new TypeToken<List<Quiz>>(){}.getType();
+        List<Quiz> quizzes = gson.fromJson(json, type);*/
+
+        ArrayList<Quiz> quizzes = new ArrayList<Quiz>();
+        quizzes.add(mQuizObject);
+        quizzes.add(mQuizObject);
+        quizzes.add(mQuizObject);
+
+        Log.d("TAG", "onCreate: " + mQuizObject.getQuizTitle());
+
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+        quizzesRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapterQuiz = new QuizListAdapter(this, mLayoutManager, quizzes);
+        answersRecyclerView.setAdapter(mAdapterQuiz);
+
+        Log.d("OKEEEJ", "onCreate: DAADSAADA" + String.valueOf(mAdapterQuiz.getItemCount()));
+
 
         this.quiz = new ExampleQuiz();
 
 
 
-        newGame(quiz);
+        //newGame(quiz);
     }
 
-    public void newGame(ExampleQuiz Quiz){
+   /* public void newGame(ExampleQuiz Quiz){
 
         this.quiz = Quiz;
 
@@ -87,7 +120,7 @@ public class PlayQuizActivity extends AppCompatActivity {
         answersRecyclerView.setAdapter(mAdapter);
 
         showNextQuestion();
-    }
+    }*/
 
 
     public void showNextQuestion(){
@@ -147,11 +180,11 @@ public class PlayQuizActivity extends AppCompatActivity {
 
     }
 
-    public void playAgain(View view){
+    /*public void playAgain(View view){
 
         newGame(new ExampleQuiz());
 
-    }
+    }*/
 
     public void showAnswers(View view){
 

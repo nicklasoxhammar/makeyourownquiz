@@ -43,7 +43,7 @@ public class AnswerListAdapter extends RecyclerView.Adapter<AnswerListAdapter.Vi
             vQuestion = (TextView) v.findViewById(R.id.answer_card_question_text);
             vAnswer = (TextView) v.findViewById(R.id.answer_card_answer_text);
             vCorrectAnswer = (TextView) v.findViewById(R.id.answer_card_correctanswer_text);
-            cardView = v.findViewById(R.id.card_view);
+            cardView = v.findViewById(R.id.card_view_answer);
         }
     }
 
