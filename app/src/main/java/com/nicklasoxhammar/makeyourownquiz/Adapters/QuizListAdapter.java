@@ -43,6 +43,8 @@ public class QuizListAdapter extends RecyclerView.Adapter<QuizListAdapter.ViewHo
 
             vQuizTitle = (TextView) v.findViewById(R.id.quiz_card_quiztitle_text);
             cardView = v.findViewById(R.id.card_view_quiz);
+
+            Log.d(TAG, "ViewHolder: RREEEEEACJTHISDEN?!");
         }
     }
 
@@ -57,6 +59,8 @@ public class QuizListAdapter extends RecyclerView.Adapter<QuizListAdapter.ViewHo
     // Create new views (invoked by the layout manager)
     @Override
     public QuizListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+        Log.d(TAG, "onCreateViewHolder: EAGRSD?");
 
         View itemView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.quiz_card_view, parent, false);

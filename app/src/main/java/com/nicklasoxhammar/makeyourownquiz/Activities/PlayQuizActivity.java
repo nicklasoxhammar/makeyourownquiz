@@ -62,12 +62,13 @@ public class PlayQuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_quiz);
 
+        myQuizzesLayout = findViewById(R.id.my_quizzes_layout);
+        quizzesRecyclerView = findViewById(R.id.quizzes_recycler_view);
         questionLayout = findViewById(R.id.questionLayout);
         endScreenLayout = findViewById(R.id.endScreenLayout);
         answersLayout = findViewById(R.id.answersLayout);
         answersRecyclerView = findViewById(R.id.answers_recycler_view);
-        myQuizzesLayout = findViewById(R.id.my_quizzes_layout);
-        quizzesRecyclerView = findViewById(R.id.quizzez_recycler_view);
+
 
         question = findViewById(R.id.questionTextView);
         answer1 = findViewById(R.id.answer1Button);
@@ -93,12 +94,13 @@ public class PlayQuizActivity extends AppCompatActivity {
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         quizzesRecyclerView.setLayoutManager(mLayoutManager);
         mAdapterQuiz = new QuizListAdapter(this, mLayoutManager, quizzes);
-        answersRecyclerView.setAdapter(mAdapterQuiz);
+        quizzesRecyclerView.setAdapter(mAdapterQuiz);
+
 
         Log.d("OKEEEJ", "onCreate: DAADSAADA" + String.valueOf(mAdapterQuiz.getItemCount()));
 
 
-        this.quiz = new ExampleQuiz();
+        //this.quiz = new ExampleQuiz();
 
 
 
