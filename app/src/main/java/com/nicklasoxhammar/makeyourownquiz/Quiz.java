@@ -76,5 +76,12 @@ public class Quiz {
         currentScore = 0;
     }
 
+    public void shuffleAllAnswers(){
+        //shuffle the answers of all the questions
+        for (Question q : questions){
+            q.shuffleAnswers();
+        }
+    }
+
 
 }

@@ -27,14 +27,6 @@ public class Question {
         this.answers = answers;
         this.correctAnswer = answers.get(0);
 
-        for (String a : answers){
-
-            Log.d(TAG, "Question: " + a);
-
-        }
-
-        Collections.shuffle(answers);
-
     }
 
     public String getQuestion(){
@@ -71,6 +63,12 @@ public class Question {
     public String getAnswer(){
 
         return answer;
+    }
+
+    public void shuffleAnswers(){
+
+        Collections.shuffle(answers);
+
     }
 
 

@@ -110,6 +110,8 @@ public class PlayQuizActivity extends AppCompatActivity {
 
     public void newGame(Quiz quiz){
 
+        quiz.shuffleAllAnswers();
+
         questionLayout.setVisibility(View.VISIBLE);
         endScreenLayout.setVisibility(View.GONE);
         answersLayout.setVisibility(View.GONE);
@@ -157,9 +159,9 @@ public class PlayQuizActivity extends AppCompatActivity {
 
             quiz.increaseScore();
             currentQuestion.setAnsweredCorrectly(true);
+        }else{
+            currentQuestion.setAnsweredCorrectly(false);
         }
-
-
 
 
             if (quiz.lastQuestion()){
