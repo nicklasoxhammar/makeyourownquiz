@@ -34,13 +34,17 @@ import java.util.List;
 
 public class PlayQuizActivity extends AppCompatActivity {
 
-    ExampleQuiz quiz;
+    String TAG = "PlayQuizActivity";
+
+    Quiz quiz;
 
     TextView question;
     Button answer1;
     Button answer2;
     Button answer3;
     Button answer4;
+
+    ArrayList<Quiz> quizzes;
 
     RelativeLayout questionLayout;
     RelativeLayout endScreenLayout;
@@ -81,7 +85,7 @@ public class PlayQuizActivity extends AppCompatActivity {
         Gson gson = new Gson();
         String json = appSharedPrefs.getString("myQuizzes", "");
         Type type = new TypeToken<List<Quiz>>(){}.getType();
-        ArrayList<Quiz> quizzes = gson.fromJson(json, type);
+        quizzes = gson.fromJson(json, type);
 
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
@@ -89,24 +93,27 @@ public class PlayQuizActivity extends AppCompatActivity {
         mAdapterQuiz = new QuizListAdapter(this, mLayoutManager, quizzes);
         quizzesRecyclerView.setAdapter(mAdapterQuiz);
 
-
-        Log.d("OKEEEJ", "onCreate: DAADSAADA" + String.valueOf(mAdapterQuiz.getItemCount()));
-
-
-        //this.quiz = new ExampleQuiz();
-
-
-
-        //newGame(quiz);
     }
 
-   /* public void newGame(ExampleQuiz Quiz){
+    public void quizClicked(View view){
 
-        this.quiz = Quiz;
+
+        for(Quiz q : quizzes){
+
+            if (q.getQuizTitle().equals(view.getTag())){
+                quiz = q;
+                newGame(quiz);
+            }
+        }
+
+    }
+
+    public void newGame(Quiz quiz){
 
         questionLayout.setVisibility(View.VISIBLE);
         endScreenLayout.setVisibility(View.GONE);
         answersLayout.setVisibility(View.GONE);
+        myQuizzesLayout.setVisibility(View.GONE);
 
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
@@ -115,7 +122,7 @@ public class PlayQuizActivity extends AppCompatActivity {
         answersRecyclerView.setAdapter(mAdapter);
 
         showNextQuestion();
-    }*/
+    }
 
 
     public void showNextQuestion(){
@@ -175,11 +182,12 @@ public class PlayQuizActivity extends AppCompatActivity {
 
     }
 
-    /*public void playAgain(View view){
+    public void playAgain(View view){
 
-        newGame(new ExampleQuiz());
+        quiz.resetValues();
+        newGame(quiz);
 
-    }*/
+    }
 
     public void showAnswers(View view){
 

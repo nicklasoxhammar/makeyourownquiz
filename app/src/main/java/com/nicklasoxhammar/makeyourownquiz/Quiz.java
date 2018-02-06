@@ -10,25 +10,70 @@ import java.util.ArrayList;
 
 public class Quiz {
 
+    int maxScore;
+    int currentScore;
+    int currentQuestion;
 
     String quizTitle;
 
     ArrayList<Question> questions;
 
-    int maxPoints;
-    int currentPoints;
-
 
     public Quiz(ArrayList<Question> questions, String quizTitle){
 
         this.questions = questions;
-        maxPoints = questions.size();
+        maxScore = questions.size();
         this.quizTitle = quizTitle;
+
+        currentQuestion = -1;
     }
 
     public String getQuizTitle(){
 
         return quizTitle;
+    }
+
+    public Question getQuestion(){
+
+        currentQuestion++;
+
+        return questions.get(currentQuestion);
+
+    }
+
+    public void increaseScore(){
+
+        currentScore++;
+    }
+
+    public boolean lastQuestion(){
+
+        if (currentQuestion == questions.size() - 1){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public int getCurrentScore(){
+
+        return currentScore;
+    }
+
+    public int getMaxScore(){
+
+        return maxScore;
+    }
+
+    public ArrayList<Question> getAllQuestions(){
+
+        return questions;
+    }
+
+    public void resetValues(){
+
+        currentQuestion = -1;
+        currentScore = 0;
     }
 
 
