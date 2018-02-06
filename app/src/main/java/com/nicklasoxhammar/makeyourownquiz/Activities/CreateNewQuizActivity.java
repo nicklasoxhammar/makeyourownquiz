@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.nicklasoxhammar.makeyourownquiz.Adapters.AnswerListAdapter;
 import com.nicklasoxhammar.makeyourownquiz.Adapters.QuestionsListAdapter;
 import com.nicklasoxhammar.makeyourownquiz.DBHelper;
@@ -24,7 +25,9 @@ import com.nicklasoxhammar.makeyourownquiz.R;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Nick on 2018-02-01.
@@ -168,14 +171,26 @@ public class CreateNewQuizActivity extends AppCompatActivity {
 
         Quiz quiz = new Quiz(questions, quizTitle.getText().toString());
 
+
         SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
         SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
         Gson gson = new Gson();
-        String json = gson.toJson(quiz);
-        prefsEditor.putString("myQuiz", json);
-        prefsEditor.commit();
 
-        Log.d("tag", "createQuiz: ");
+        String json = appSharedPrefs.getString("myQuizzes", "");
+        Type type = new TypeToken<List<Quiz>>(){}.getType();
+        ArrayList<Quiz> quizzes = gson.fromJson(json, type);
+
+        //Check if the arrayList already exists, if it doesnt - create a list and add the object, if it does - just add the object.
+        if (quizzes == null){
+            quizzes = new ArrayList<Quiz>();
+            quizzes.add(quiz);
+        }else{
+            quizzes.add(quiz);
+        }
+
+        json = gson.toJson(quizzes);
+        prefsEditor.putString("myQuizzes", json);
+        prefsEditor.commit();
 
 
 

@@ -72,8 +72,6 @@ public static class ViewHolder extends RecyclerView.ViewHolder {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
 
-        Log.d(TAG, "onBindViewHolder: FAFAFAFAFAFAFAK");
-
         question = questions.get(position);
 
         holder.vQuestion.setText(question.getQuestion());

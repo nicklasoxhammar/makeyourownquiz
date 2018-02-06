@@ -79,17 +79,10 @@ public class PlayQuizActivity extends AppCompatActivity {
         SharedPreferences appSharedPrefs = PreferenceManager
                 .getDefaultSharedPreferences(this.getApplicationContext());
         Gson gson = new Gson();
-        String json = appSharedPrefs.getString("myQuiz", "");
-        Quiz mQuizObject = gson.fromJson(json, Quiz.class);
-        /*Type type = new TypeToken<List<Quiz>>(){}.getType();
-        List<Quiz> quizzes = gson.fromJson(json, type);*/
+        String json = appSharedPrefs.getString("myQuizzes", "");
+        Type type = new TypeToken<List<Quiz>>(){}.getType();
+        ArrayList<Quiz> quizzes = gson.fromJson(json, type);
 
-        ArrayList<Quiz> quizzes = new ArrayList<Quiz>();
-        quizzes.add(mQuizObject);
-        quizzes.add(mQuizObject);
-        quizzes.add(mQuizObject);
-
-        Log.d("TAG", "onCreate: " + mQuizObject.getQuizTitle());
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         quizzesRecyclerView.setLayoutManager(mLayoutManager);
