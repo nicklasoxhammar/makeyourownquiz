@@ -7,14 +7,13 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.nicklasoxhammar.makeyourownquiz.Adapters.QuestionsListAdapter;
-import com.nicklasoxhammar.makeyourownquiz.Adapters.QuizListAdapter;
 import com.nicklasoxhammar.makeyourownquiz.Question;
 import com.nicklasoxhammar.makeyourownquiz.Quiz;
 import com.nicklasoxhammar.makeyourownquiz.R;
@@ -38,6 +37,15 @@ public class EditQuizActivity extends AppCompatActivity {
     RecyclerView questionsRecyclerView;
     RecyclerView.Adapter mAdapter;
 
+    RelativeLayout mainLayout;
+    RelativeLayout newQuestionLayout;
+
+    SharedPreferences appSharedPrefs;
+    Gson gson;
+    String json;
+
+    ArrayList<Quiz> quizzes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,6 +56,8 @@ public class EditQuizActivity extends AppCompatActivity {
 
         setQuiz();
 
+        mainLayout = findViewById(R.id.editQuizMainLayout);
+        newQuestionLayout = findViewById(R.id.editNewQuestionLayout);
 
         questionsRecyclerView = findViewById(R.id.edit_quiz_questions_recycler_view);
 
@@ -63,11 +73,11 @@ public class EditQuizActivity extends AppCompatActivity {
 
     public void setQuiz(){
 
-        SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
-        Gson gson = new Gson();
-        String json = appSharedPrefs.getString("myQuizzes", "");
+        appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
+        gson = new Gson();
+        json = appSharedPrefs.getString("myQuizzes", "");
         Type type = new TypeToken<List<Quiz>>(){}.getType();
-        ArrayList<Quiz> quizzes = gson.fromJson(json, type);
+        quizzes = gson.fromJson(json, type);
 
         for (Quiz q : quizzes){
 
@@ -83,7 +93,44 @@ public class EditQuizActivity extends AppCompatActivity {
 
     public void deleteQuestion(View view){
 
+        for (Question q : questions){
+
+            if (q.getQuestion().equals(view.getTag())){
+                questions.remove(q);
+                mAdapter.notifyDataSetChanged();
+            }
+        }
 
 
+
+    }
+
+    public void addQuestion(View view){
+
+        mainLayout.setVisibility(View.GONE);
+        newQuestionLayout.setVisibility(View.VISIBLE);
+
+    }
+
+    public void deleteQuiz(View view){
+
+        for (Quiz q : quizzes){
+
+            if (q.getQuizTitle().equals(quizName)){
+                quizzes.remove(q);
+            }
+        }
+
+        SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
+        prefsEditor.remove("myQuizzes");
+        prefsEditor.commit();
+
+
+        json = gson.toJson(quizzes);
+        prefsEditor.putString("myQuizzes", json);
+        prefsEditor.commit();
+
+        Intent intent = new Intent(EditQuizActivity.this, PlayQuizActivity.class);
+        startActivity(intent);
     }
 }

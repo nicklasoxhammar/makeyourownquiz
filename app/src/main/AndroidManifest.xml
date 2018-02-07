@@ -24,7 +24,12 @@
         </activity>
         <activity
             android:name=".Activities.PlayQuizActivity"
-            android:label="Quiz Time!">
+            android:label="Quiz Time!"
+            android:parentActivityName="com.nicklasoxhammar.makeyourownquiz.Activities.MainActivity"
+                >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nicklasoxhammar.makeyourownquiz.Activities.MainActivity" />
         </activity>
         <activity
             android:name=".Activities.EditQuizActivity"

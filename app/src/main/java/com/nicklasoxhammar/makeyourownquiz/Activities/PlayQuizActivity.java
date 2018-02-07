@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -223,8 +224,16 @@ public class PlayQuizActivity extends AppCompatActivity {
         intent.putExtra("quizName", cardViewTag);
         startActivity(intent);
 
-
     }
 
+    //This is here so that the app doesnt go back to editing the quiz after being deleted when pressing the back button.
+    @Override
+    public void onBackPressed() {
 
+        if(myQuizzesLayout.getVisibility() == View.VISIBLE) {
+            NavUtils.navigateUpFromSameTask(this);
+        }else {
+            super.onBackPressed();
+        }
+    }
 }

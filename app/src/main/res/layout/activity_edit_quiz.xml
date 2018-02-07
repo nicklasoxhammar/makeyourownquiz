@@ -3,6 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:id="@+id/editQuizMainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
+
     <TextView
         android:id="@+id/quizNameTextView"
         android:layout_width="wrap_content"
@@ -57,6 +63,96 @@
         android:onClick="deleteQuiz"
         android:backgroundTint="@color/wrongAnswerColor"
         android:text="Delete quiz" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/editNewQuestionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+
+        <EditText
+            android:id="@+id/editNewQuestionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Question?" />
+
+        <EditText
+            android:id="@+id/editNewQuestionAnswer1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editNewQuestionTitle"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:ems="15"
+            android:hint="Write the correct answer here."
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editNewQuestionAnswer2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/editNewQuestionAnswer1"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:ems="15"
+            android:hint="Answer 2"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editNewQuestionAnswer3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editNewQuestionAnswer2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:ems="15"
+            android:hint="Answer 3"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editNewQuestionAnswer4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editNewQuestionAnswer3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:ems="15"
+            android:hint="Answer 4"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/editNewQuestionDoneButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/newQuestionAnswer4"
+            android:layout_below="@+id/editNewQuestionAnswer4"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="70dp"
+            android:layout_alignParentStart="true"
+            android:onClick="createNewQuestion"
+            android:text="Done" />
+
+        <Button
+            android:id="@+id/editNewQuestionCancelButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="30dp"
+            android:layout_below="@id/editNewQuestionAnswer4"
+            android:layout_marginRight="70dp"
+            android:onClick="cancelNewQuestion"
+            android:text="Cancel" />
+
+
+    </RelativeLayout>
 
 
 
