@@ -196,6 +196,12 @@ public class EditQuizActivity extends AppCompatActivity {
 
     public void applyChange(View view){
 
+        if (questions.isEmpty()) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Add some questions!", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
         Quiz changedQuiz = new Quiz(questions, quizName);
 
         for (Iterator<Quiz> it = quizzes.iterator(); it.hasNext();) {
@@ -224,8 +230,18 @@ public class EditQuizActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
 
+    }
 
+    public void cancelNewQuestion(View view){
 
+        questionTitle.setText("");
+        questionAnswer1.setText("");
+        questionAnswer2.setText("");
+        questionAnswer3.setText("");
+        questionAnswer4.setText("");
+
+        mainLayout.setVisibility(View.VISIBLE);
+        newQuestionLayout.setVisibility(View.GONE);
 
     }
 }
