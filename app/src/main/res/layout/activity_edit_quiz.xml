@@ -23,17 +23,17 @@
         android:layout_height="wrap_content"
         />
 
+
     <Button
-        android:id="@+id/deleteQuizButton"
+        android:id="@+id/editQuizAddQuestionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/edit_quiz_questions_recycler_view"
         android:layout_marginLeft="70dp"
         android:layout_alignParentStart="true"
         android:layout_marginTop="30dp"
-        android:onClick="deleteQuiz"
-        android:backgroundTint="@color/wrongAnswerColor"
-        android:text="Delete quiz" />
+        android:onClick="addQuestion"
+        android:text="Add Question" />
 
     <Button
         android:id="@+id/editQuizMainMenuButton"
@@ -45,6 +45,18 @@
         android:layout_marginTop="30dp"
         android:onClick="mainMenu"
         android:text="Main menu" />
+
+    <Button
+        android:id="@+id/deleteQuizButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editQuizMainMenuButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:onClick="deleteQuiz"
+        android:backgroundTint="@color/wrongAnswerColor"
+        android:text="Delete quiz" />
+
 
 
 

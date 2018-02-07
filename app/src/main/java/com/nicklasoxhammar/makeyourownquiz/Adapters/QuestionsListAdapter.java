@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.nicklasoxhammar.makeyourownquiz.Question;
@@ -35,6 +36,7 @@ public static class ViewHolder extends RecyclerView.ViewHolder {
 
     protected TextView vQuestion;
     protected TextView vCorrectAnswer;
+    protected ImageButton vDeleteQuestionButton;
     protected View cardView;
 
     public ViewHolder(View v) {
@@ -42,6 +44,7 @@ public static class ViewHolder extends RecyclerView.ViewHolder {
 
         vQuestion = (TextView) v.findViewById(R.id.question_card_question_text);
         vCorrectAnswer = (TextView) v.findViewById(R.id.question_card_correctanswer_text);
+        vDeleteQuestionButton = (ImageButton) v.findViewById(R.id.deleteQuestionButton);
         cardView = v.findViewById(R.id.card_view_question);
     }
 }
@@ -76,6 +79,7 @@ public static class ViewHolder extends RecyclerView.ViewHolder {
 
         holder.vQuestion.setText(question.getQuestion());
         holder.vCorrectAnswer.setText("Correct answer: " + question.getCorrectAnswer());
+        holder.vDeleteQuestionButton.setTag(question.getQuestion());
 
 
     }

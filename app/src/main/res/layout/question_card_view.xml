@@ -29,17 +29,26 @@
                 android:id="@+id/question_card_question_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:text="question"
                 />
 
             <TextView
                 android:id="@+id/question_card_correctanswer_text"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:text="correct answer"
                 />
+
+            <ImageButton
+                android:id="@+id/deleteQuestionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:onClick="deleteQuestion"
+                card_view:srcCompat="@android:drawable/ic_menu_delete" />
 
         </RelativeLayout>
 

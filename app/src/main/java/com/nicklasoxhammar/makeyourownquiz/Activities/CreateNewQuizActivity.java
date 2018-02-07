@@ -186,5 +186,20 @@ public class CreateNewQuizActivity extends AppCompatActivity {
 
     }
 
+    public void deleteQuestion(View view){
+
+        for (Question q : questions){
+
+            if (q.getQuestion().equals(view.getTag())){
+                questions.remove(q);
+                mAdapter.notifyDataSetChanged();
+            }
+        }
+
+
+
+
+    }
+
 
 }
