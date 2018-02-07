@@ -8,8 +8,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -20,6 +22,7 @@ import com.nicklasoxhammar.makeyourownquiz.R;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -46,6 +49,12 @@ public class EditQuizActivity extends AppCompatActivity {
 
     ArrayList<Quiz> quizzes;
 
+    public EditText questionTitle;
+    public EditText questionAnswer1;
+    public EditText questionAnswer2;
+    public EditText questionAnswer3;
+    public EditText questionAnswer4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +77,12 @@ public class EditQuizActivity extends AppCompatActivity {
 
         TextView quizNameTextView = findViewById(R.id.quizNameTextView);
         quizNameTextView.setText(quizName);
+
+        questionTitle = findViewById(R.id.editNewQuestionTitle);
+        questionAnswer1 = findViewById(R.id.editNewQuestionAnswer1);
+        questionAnswer2 = findViewById(R.id.editNewQuestionAnswer2);
+        questionAnswer3 = findViewById(R.id.editNewQuestionAnswer3);
+        questionAnswer4 = findViewById(R.id.editNewQuestionAnswer4);
 
     }
 
@@ -112,12 +127,52 @@ public class EditQuizActivity extends AppCompatActivity {
 
     }
 
+    public void createNewQuestion(View view){
+
+        ArrayList<String> questionAnswers = new ArrayList<String>();
+
+        questionAnswers.add(questionAnswer1.getText().toString());
+        questionAnswers.add(questionAnswer2.getText().toString());
+        questionAnswers.add(questionAnswer3.getText().toString());
+        questionAnswers.add(questionAnswer4.getText().toString());
+
+
+        if(questionTitle.getText().toString().equals("")){
+            Toast toast = Toast.makeText(getApplicationContext(), "You forgot to write the question!", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+
+        for (String answer : questionAnswers){
+
+            if (answer.equals("")){
+
+                Toast toast = Toast.makeText(getApplicationContext(), "Please fill in all answers!", Toast.LENGTH_SHORT);
+                toast.show();
+                return;
+            }
+        }
+
+
+        questions.add(new Question(questionTitle.getText().toString(), questionAnswers));
+
+        questionTitle.setText("");
+        questionAnswer1.setText("");
+        questionAnswer2.setText("");
+        questionAnswer3.setText("");
+        questionAnswer4.setText("");
+
+        mainLayout.setVisibility(View.VISIBLE);
+        newQuestionLayout.setVisibility(View.GONE);
+
+    }
+
     public void deleteQuiz(View view){
 
-        for (Quiz q : quizzes){
-
-            if (q.getQuizTitle().equals(quizName)){
-                quizzes.remove(q);
+        for (Iterator<Quiz> it = quizzes.iterator(); it.hasNext();) {
+            Quiz q = it.next();
+            if(q.getQuizTitle().equals(quizName)) {
+                it.remove();
             }
         }
 
