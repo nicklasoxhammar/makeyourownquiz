@@ -1,8 +1,11 @@
 package com.nicklasoxhammar.makeyourownquiz.Adapters;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +31,7 @@ public class QuizListAdapter extends RecyclerView.Adapter<QuizListAdapter.ViewHo
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder  {
 
         protected TextView vQuizTitle;
         protected View cardView;
@@ -40,6 +43,8 @@ public class QuizListAdapter extends RecyclerView.Adapter<QuizListAdapter.ViewHo
             cardView = v.findViewById(R.id.card_view_quiz);
 
         }
+
+
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
@@ -73,6 +78,7 @@ public class QuizListAdapter extends RecyclerView.Adapter<QuizListAdapter.ViewHo
         holder.vQuizTitle.setText(quiz.getQuizTitle());
         holder.cardView.setTag(quiz.getQuizTitle());
 
+
     }
 
 
@@ -80,5 +86,7 @@ public class QuizListAdapter extends RecyclerView.Adapter<QuizListAdapter.ViewHo
     public int getItemCount() {
         return quizzes.size();
     }
+
+
 
 }

@@ -1,5 +1,6 @@
 package com.nicklasoxhammar.makeyourownquiz.Activities;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Environment;
@@ -185,6 +186,11 @@ public class CreateNewQuizActivity extends AppCompatActivity {
         prefsEditor.putString("myQuizzes", json);
         prefsEditor.commit();
 
+        Toast toast = Toast.makeText(getApplicationContext(), "Quiz created!", Toast.LENGTH_SHORT);
+        toast.show();
+
+        Intent intent = new Intent(CreateNewQuizActivity.this, MainActivity.class);
+        startActivity(intent);
 
     }
 

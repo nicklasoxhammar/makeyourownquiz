@@ -30,8 +30,18 @@
                 android:id="@+id/quiz_card_quiztitle_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:text="quiztitle"
+                android:layout_marginLeft="10dp"
                 />
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                card_view:srcCompat="@android:drawable/ic_menu_edit" />
 
 
         </RelativeLayout>

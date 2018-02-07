@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -87,11 +88,17 @@ public class PlayQuizActivity extends AppCompatActivity {
         Type type = new TypeToken<List<Quiz>>(){}.getType();
         quizzes = gson.fromJson(json, type);
 
+        if (quizzes != null) {
+            LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
+            quizzesRecyclerView.setLayoutManager(mLayoutManager);
+            mAdapterQuiz = new QuizListAdapter(this, mLayoutManager, quizzes);
+            quizzesRecyclerView.setAdapter(mAdapterQuiz);
+        }else{
 
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
-        quizzesRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapterQuiz = new QuizListAdapter(this, mLayoutManager, quizzes);
-        quizzesRecyclerView.setAdapter(mAdapterQuiz);
+            Toast toast = Toast.makeText(getApplicationContext(), "You haven't created any quizzes, head back and create one! :)", Toast.LENGTH_LONG);
+            toast.show();
+
+        }
 
     }
 
@@ -207,4 +214,6 @@ public class PlayQuizActivity extends AppCompatActivity {
         answersLayout.setVisibility(View.VISIBLE);
 
     }
+
+
 }
