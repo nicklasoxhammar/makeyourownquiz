@@ -108,14 +108,13 @@ public class EditQuizActivity extends AppCompatActivity {
 
     public void deleteQuestion(View view){
 
-        for (Question q : questions){
-
-            if (q.getQuestion().equals(view.getTag())){
-                questions.remove(q);
+        for (Iterator<Question> it = questions.iterator(); it.hasNext();) {
+            Question q = it.next();
+            if(q.getQuestion().equals(view.getTag())) {
+                it.remove();
                 mAdapter.notifyDataSetChanged();
             }
         }
-
 
 
     }
@@ -185,7 +184,48 @@ public class EditQuizActivity extends AppCompatActivity {
         prefsEditor.putString("myQuizzes", json);
         prefsEditor.commit();
 
+        Toast toast = Toast.makeText(getApplicationContext(), "Quiz deleted!", Toast.LENGTH_SHORT);
+        toast.show();
+
         Intent intent = new Intent(EditQuizActivity.this, PlayQuizActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        finish();
+
+    }
+
+    public void applyChange(View view){
+
+        Quiz changedQuiz = new Quiz(questions, quizName);
+
+        for (Iterator<Quiz> it = quizzes.iterator(); it.hasNext();) {
+            Quiz q = it.next();
+            if(q.getQuizTitle().equals(quizName)) {
+                it.remove();
+            }
+        }
+
+        quizzes.add(changedQuiz);
+
+        SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
+        prefsEditor.remove("myQuizzes");
+        prefsEditor.commit();
+
+
+        json = gson.toJson(quizzes);
+        prefsEditor.putString("myQuizzes", json);
+        prefsEditor.commit();
+
+        Toast toast = Toast.makeText(getApplicationContext(), "Changes Applied!", Toast.LENGTH_SHORT);
+        toast.show();
+
+        Intent intent = new Intent(EditQuizActivity.this, PlayQuizActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        finish();
+
+
+
+
     }
 }

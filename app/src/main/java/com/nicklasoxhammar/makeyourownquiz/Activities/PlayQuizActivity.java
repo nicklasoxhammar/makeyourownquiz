@@ -226,14 +226,5 @@ public class PlayQuizActivity extends AppCompatActivity {
 
     }
 
-    //This is here so that the app doesnt go back to editing the quiz after being deleted when pressing the back button.
-    @Override
-    public void onBackPressed() {
 
-        if(myQuizzesLayout.getVisibility() == View.VISIBLE) {
-            NavUtils.navigateUpFromSameTask(this);
-        }else {
-            super.onBackPressed();
-        }
-    }
 }
