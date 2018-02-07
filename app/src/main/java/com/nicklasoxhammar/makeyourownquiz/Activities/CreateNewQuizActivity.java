@@ -3,12 +3,10 @@ package com.nicklasoxhammar.makeyourownquiz.Activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -21,7 +19,7 @@ import com.nicklasoxhammar.makeyourownquiz.Question;
 import com.nicklasoxhammar.makeyourownquiz.Quiz;
 import com.nicklasoxhammar.makeyourownquiz.R;
 
-import java.io.File;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,9 +39,6 @@ public class CreateNewQuizActivity extends AppCompatActivity {
     public EditText questionAnswer2;
     public EditText questionAnswer3;
     public EditText questionAnswer4;
-
-    private String mFileName = null;
-    private String mFilePath = null;
 
 
     public ArrayList<Question> questions;
@@ -76,7 +71,6 @@ public class CreateNewQuizActivity extends AppCompatActivity {
 
         quizTitle = findViewById(R.id.quizNameEditText);
 
-
     }
 
 
@@ -85,9 +79,7 @@ public class CreateNewQuizActivity extends AppCompatActivity {
         newQuizMainLayout.setVisibility(View.GONE);
         newQuestionLayout.setVisibility(View.VISIBLE);
 
-
     }
-
 
     public void createNewQuestion(View view){
 

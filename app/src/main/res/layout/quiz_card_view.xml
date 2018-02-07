@@ -41,7 +41,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                card_view:srcCompat="@android:drawable/ic_menu_edit" />
+                card_view:srcCompat="@android:drawable/ic_menu_edit"
+                android:onClick="editQuiz"/>
 
 
         </RelativeLayout>

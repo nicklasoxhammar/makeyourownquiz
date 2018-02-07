@@ -26,6 +26,10 @@
             android:name=".Activities.PlayQuizActivity"
             android:label="Quiz Time!">
         </activity>
+        <activity
+            android:name=".Activities.EditQuizActivity"
+            android:label="Edit Quiz">
+        </activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.nicklasoxhammar.makeyourownquiz.fileprovider"

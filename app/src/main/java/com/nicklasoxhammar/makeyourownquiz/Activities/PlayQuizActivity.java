@@ -60,8 +60,6 @@ public class PlayQuizActivity extends AppCompatActivity {
 
     Question currentQuestion;
 
-    ArrayAdapter<Question> adapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -212,6 +210,19 @@ public class PlayQuizActivity extends AppCompatActivity {
         questionLayout.setVisibility(View.GONE);
         endScreenLayout.setVisibility(View.GONE);
         answersLayout.setVisibility(View.VISIBLE);
+
+    }
+
+    public void editQuiz(View view){
+
+        View cardView = (View) view.getParent().getParent();
+        String cardViewTag = cardView.getTag().toString();
+
+
+        Intent intent = new Intent(PlayQuizActivity.this, EditQuizActivity.class);
+        intent.putExtra("quizName", cardViewTag);
+        startActivity(intent);
+
 
     }
 
