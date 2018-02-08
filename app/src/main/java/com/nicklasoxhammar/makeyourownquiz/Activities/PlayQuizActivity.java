@@ -53,6 +53,8 @@ public class PlayQuizActivity extends AppCompatActivity {
     RelativeLayout answersLayout;
     RelativeLayout myQuizzesLayout;
 
+    String answer;
+
     RecyclerView answersRecyclerView;
     RecyclerView.Adapter mAdapter;
 
@@ -79,6 +81,8 @@ public class PlayQuizActivity extends AppCompatActivity {
         answer2 = findViewById(R.id.answer2Button);
         answer3 = findViewById(R.id.answer3Button);
         answer4 = findViewById(R.id.answer4Button);
+
+
 
         SharedPreferences appSharedPrefs = PreferenceManager
                 .getDefaultSharedPreferences(this.getApplicationContext());
@@ -129,14 +133,6 @@ public class PlayQuizActivity extends AppCompatActivity {
         mAdapter = new AnswerListAdapter(this, mLayoutManager, quiz.getAllQuestions());
         answersRecyclerView.setAdapter(mAdapter);
 
-        for (Question question : quiz.getAllQuestions()){
-
-            Log.d(TAG, "newGame: "+ String.valueOf(question.getAnswers(0)));
-            Log.d(TAG, "newGame: "+ String.valueOf(question.getAnswers(1)));
-            Log.d(TAG, "newGame: "+ String.valueOf(question.getAnswers(2)));
-            Log.d(TAG, "newGame: "+ String.valueOf(question.getAnswers(3)));
-            Log.d(TAG, "newGame: " + question.getCorrectAnswer());
-        }
 
         showNextQuestion();
     }
@@ -146,11 +142,11 @@ public class PlayQuizActivity extends AppCompatActivity {
 
         currentQuestion = quiz.getQuestion();
 
-        question.setText(currentQuestion.getQuestion());
         answer1.setText(currentQuestion.getAnswers(0));
         answer2.setText(currentQuestion.getAnswers(1));
         answer3.setText(currentQuestion.getAnswers(2));
         answer4.setText(currentQuestion.getAnswers(3));
+        question.setText(currentQuestion.getQuestion());
 
     }
 

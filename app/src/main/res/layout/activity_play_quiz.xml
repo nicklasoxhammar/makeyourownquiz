@@ -48,51 +48,49 @@
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/questionTextView"
             android:layout_marginTop="200dp">
 
             <Button
                 android:id="@+id/answer1Button"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_column="0"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
                 android:layout_row="0"
                 android:layout_rowWeight="1"
-                android:soundEffectsEnabled="false"
-                android:text="Answer1"
                 android:onClick="checkAnswer"
+                android:soundEffectsEnabled="false"
                 android:tag="1"
-                />
+                android:text="Answer1"
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/answer2Button"
                 android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
                 android:layout_column="1"
                 android:layout_columnWeight="1"
-                android:layout_gravity="fill"
                 android:layout_row="0"
                 android:layout_rowWeight="1"
                 android:soundEffectsEnabled="false"
                 android:text="Answer2"
                 android:onClick="checkAnswer"
                 android:tag="2"
+                android:textAllCaps="false"
                 />
 
             <Button
                 android:id="@+id/answer3Button"
-                android:layout_marginTop="5dp"
                 android:layout_marginLeft="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_column="0"
                 android:layout_columnWeight="1"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
                 android:layout_gravity="fill"
                 android:layout_row="1"
                 android:layout_rowWeight="1"
@@ -100,14 +98,16 @@
                 android:text="Answer3"
                 android:onClick="checkAnswer"
                 android:tag="3"
+                android:textAllCaps="false"
+                android:layout_marginBottom="5dp"
                 />
 
             <Button
                 android:id="@+id/answer4Button"
-                android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:layout_height="0dp"
+                android:layout_width="0dp"
                 android:layout_column="1"
                 android:layout_columnWeight="1"
                 android:layout_gravity="fill"
@@ -117,6 +117,7 @@
                 android:text="Answer4"
                 android:onClick="checkAnswer"
                 android:tag="4"
+                android:textAllCaps="false"
                 />
 
         </GridLayout>

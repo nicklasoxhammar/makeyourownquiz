@@ -93,6 +93,7 @@
             android:layout_marginTop="35dp"
             android:ems="15"
             android:hint="Write the correct answer here."
+            android:maxLength="40"
             android:inputType="text" />
 
         <EditText
