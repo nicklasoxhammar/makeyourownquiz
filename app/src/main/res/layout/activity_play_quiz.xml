@@ -7,7 +7,7 @@
         android:id="@+id/my_quizzes_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/myQuizzesTitleTextView"
@@ -169,34 +169,45 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="gone">
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/answers_recycler_view"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="5dp"
+
         />
 
         <Button
             android:id="@+id/playAgainButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_below="@id/answers_recycler_view"
-            android:layout_marginLeft="70dp"
+            android:layout_toLeftOf="@id/playAgainMainMenuBuffer"
             android:onClick="playAgain"
-            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:layout_alignParentBottom="true"
             android:text="Play Again!" />
 
         <Button
+            android:id="@+id/playAgainMainMenuBuffer"
+            android:layout_width="50dp"
+            android:layout_height="10dp"
+            android:layout_centerHorizontal="true"
+            android:visibility="invisible"
+            android:clickable="false"
+            />
+
+        <Button
             android:id="@+id/mainMenuButton2"
-            android:layout_below="@id/answers_recycler_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_alignParentEnd="true"
+            android:layout_toRightOf="@id/playAgainMainMenuBuffer"
             android:layout_marginRight="70dp"
             android:onClick="mainMenu"
-            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:layout_alignParentBottom="true"
             android:text="Main Menu" />
 
 

@@ -75,6 +75,8 @@ public class PlayQuizActivity extends AppCompatActivity {
         answersLayout = findViewById(R.id.answersLayout);
         answersRecyclerView = findViewById(R.id.answers_recycler_view);
 
+        myQuizzesLayout.setVisibility(View.VISIBLE);
+
 
         question = findViewById(R.id.questionTextView);
         answer1 = findViewById(R.id.answer1Button);
