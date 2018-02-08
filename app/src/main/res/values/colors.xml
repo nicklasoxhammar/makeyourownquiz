@@ -12,8 +12,12 @@
 
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
+    <color name="yellow">#fffb20</color>
+    <color name="lightgrey">#eaeaea</color>
+    <color name="blue">#4796ff</color>
 
     <color name="transparent">#00000000</color>
+
 
 
 </resources>

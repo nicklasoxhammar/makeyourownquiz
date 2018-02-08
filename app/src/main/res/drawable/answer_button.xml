@@ -3,20 +3,20 @@
     <item android:state_pressed="false">
         <shape android:shape="rectangle">
             <gradient android:startColor="@color/white"
-                android:endColor="@color/colorPrimary"
+                android:endColor="@color/blue"
                 android:type="radial"
                 android:angle="90"
-                android:gradientRadius="100dp"/>
+                android:gradientRadius="150dp"/>
             <corners android:radius="5dp"/>
         </shape>
     </item>
     <item android:state_pressed="true">
         <shape android:shape="rectangle">
             <gradient android:startColor="@color/white"
-                android:endColor="@color/colorPrimary"
+                android:endColor="@color/blue"
                 android:type="radial"
                 android:angle="90"
-                android:gradientRadius="50dp"/>
+                android:gradientRadius="250dp"/>
             <corners android:radius="5dp"/>
         </shape>
 
