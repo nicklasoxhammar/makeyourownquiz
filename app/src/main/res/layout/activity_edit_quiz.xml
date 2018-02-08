@@ -29,6 +29,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="150dp"
+        android:background="@color/recyclerViewBackground"
         />
 
 
@@ -90,6 +91,7 @@
             android:layout_marginTop="30dp"
             android:ems="10"
             android:inputType="text"
+            android:maxLength="100"
             android:hint="Question?" />
 
         <EditText
@@ -101,7 +103,7 @@
             android:layout_marginTop="35dp"
             android:ems="15"
             android:hint="Write the correct answer here."
-            android:maxLength="40"
+            android:maxLength="100"
             android:inputType="text" />
 
         <EditText
@@ -113,6 +115,7 @@
             android:layout_marginTop="20dp"
             android:ems="15"
             android:hint="Answer 2"
+            android:maxLength="100"
             android:inputType="text" />
 
         <EditText
@@ -124,6 +127,7 @@
             android:layout_marginTop="20dp"
             android:ems="15"
             android:hint="Answer 3"
+            android:maxLength="100"
             android:inputType="text" />
 
         <EditText
@@ -135,6 +139,7 @@
             android:layout_marginTop="20dp"
             android:ems="15"
             android:hint="Answer 4"
+            android:maxLength="100"
             android:inputType="text" />
 
         <Button

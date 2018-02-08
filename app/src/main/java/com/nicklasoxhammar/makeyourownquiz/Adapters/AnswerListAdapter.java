@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +36,7 @@ public class AnswerListAdapter extends RecyclerView.Adapter<AnswerListAdapter.Vi
         protected TextView vQuestion;
         protected TextView vAnswer;
         protected TextView vCorrectAnswer;
-        protected View cardView;
+        protected LinearLayout cardBackground;
 
         public ViewHolder(View v) {
             super(v);
@@ -43,7 +44,7 @@ public class AnswerListAdapter extends RecyclerView.Adapter<AnswerListAdapter.Vi
             vQuestion = (TextView) v.findViewById(R.id.answer_card_question_text);
             vAnswer = (TextView) v.findViewById(R.id.answer_card_answer_text);
             vCorrectAnswer = (TextView) v.findViewById(R.id.answer_card_correctanswer_text);
-            cardView = v.findViewById(R.id.card_view_answer);
+            cardBackground = v.findViewById(R.id.answerCardBackground);
         }
     }
 
@@ -75,15 +76,15 @@ public class AnswerListAdapter extends RecyclerView.Adapter<AnswerListAdapter.Vi
 
         question = questions.get(position);
 
-        holder.vQuestion.setText(question.getQuestion());
-        holder.vAnswer.setText("Your answer: " + question.getAnswer());
-        holder.vCorrectAnswer.setText("Correct answer: " + question.getCorrectAnswer());
+        holder.vQuestion.setText(Html.fromHtml("<b>Question:</b>  " + question.getQuestion()));
+        holder.vAnswer.setText(Html.fromHtml("<b>Your answer:</b>  " + question.getAnswer()));
+        holder.vCorrectAnswer.setText(Html.fromHtml("<b>Correct answer:</b>  " + question.getCorrectAnswer()));
 
         if(question.getAnsweredCorrectly()){
 
-            holder.cardView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.rightAnswerColor));
+            holder.cardBackground.setBackgroundColor(ContextCompat.getColor(mContext, R.color.rightAnswerColor));
         }else{
-            holder.cardView.setBackgroundColor(ContextCompat.getColor(mContext, R.color.wrongAnswerColor));
+            holder.cardBackground.setBackgroundColor(ContextCompat.getColor(mContext, R.color.wrongAnswerColor));
         }
 
     }
