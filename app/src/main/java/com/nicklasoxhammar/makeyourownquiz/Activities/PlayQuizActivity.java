@@ -50,10 +50,7 @@ public class PlayQuizActivity extends AppCompatActivity {
 
     RelativeLayout questionLayout;
     RelativeLayout endScreenLayout;
-    RelativeLayout answersLayout;
     RelativeLayout myQuizzesLayout;
-
-    String answer;
 
     RecyclerView answersRecyclerView;
     RecyclerView.Adapter mAdapter;
@@ -72,7 +69,6 @@ public class PlayQuizActivity extends AppCompatActivity {
         quizzesRecyclerView = findViewById(R.id.quizzes_recycler_view);
         questionLayout = findViewById(R.id.questionLayout);
         endScreenLayout = findViewById(R.id.endScreenLayout);
-        answersLayout = findViewById(R.id.answersLayout);
         answersRecyclerView = findViewById(R.id.answers_recycler_view);
 
         myQuizzesLayout.setVisibility(View.VISIBLE);
@@ -126,7 +122,6 @@ public class PlayQuizActivity extends AppCompatActivity {
 
         questionLayout.setVisibility(View.VISIBLE);
         endScreenLayout.setVisibility(View.GONE);
-        answersLayout.setVisibility(View.GONE);
         myQuizzesLayout.setVisibility(View.GONE);
 
 
@@ -204,13 +199,6 @@ public class PlayQuizActivity extends AppCompatActivity {
 
     }
 
-    public void showAnswers(View view){
-
-        questionLayout.setVisibility(View.GONE);
-        endScreenLayout.setVisibility(View.GONE);
-        answersLayout.setVisibility(View.VISIBLE);
-
-    }
 
     public void editQuiz(View view){
 

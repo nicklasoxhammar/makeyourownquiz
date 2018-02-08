@@ -68,6 +68,8 @@ public class EditQuizActivity extends AppCompatActivity {
         mainLayout = findViewById(R.id.editQuizMainLayout);
         newQuestionLayout = findViewById(R.id.editNewQuestionLayout);
 
+        mainLayout.setVisibility(View.VISIBLE);
+
         questionsRecyclerView = findViewById(R.id.edit_quiz_questions_recycler_view);
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
