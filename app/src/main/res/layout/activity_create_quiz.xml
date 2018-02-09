@@ -20,7 +20,7 @@
         android:ems="15"
         android:maxLength="30"
         android:singleLine="true"
-        android:hint="Quiz Name" />
+        android:hint="@string/quizName" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/questions_recycler_view"
@@ -43,7 +43,7 @@
         android:background="@drawable/pink_button"
         android:padding="5dp"
         android:textStyle="italic"
-        android:text="Add&#10;Question" />
+        android:text="@string/addQuestion" />
 
         <Button
             android:id="@+id/createButtonsBuffer"
@@ -65,7 +65,7 @@
         android:background="@drawable/pink_button"
         android:padding="5dp"
         android:textStyle="italic"
-        android:text="Create&#10;Quiz" />
+        android:text="@string/createQuiz" />
 
     </RelativeLayout>
 
@@ -86,7 +86,7 @@
             android:ems="15"
             android:inputType="text"
             android:maxLength="100"
-            android:hint="Question?" />
+            android:hint="@string/newQuestionTitle" />
 
         <EditText
             android:id="@+id/newQuestionAnswer1"
@@ -97,7 +97,7 @@
             android:layout_marginTop="35dp"
             android:ems="15"
             android:maxLength="100"
-            android:hint="Write the correct answer here."
+            android:hint="@string/writeCorrectAnswer"
             android:inputType="text" />
 
         <EditText
@@ -109,7 +109,7 @@
             android:layout_marginTop="20dp"
             android:ems="15"
             android:maxLength="100"
-            android:hint="Answer 2"
+            android:hint="@string/answer2"
             android:inputType="text" />
 
         <EditText
@@ -121,7 +121,7 @@
             android:layout_marginTop="20dp"
             android:ems="15"
             android:maxLength="100"
-            android:hint="Answer 3"
+            android:hint="@string/answer3"
             android:inputType="text" />
 
         <EditText
@@ -132,7 +132,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:ems="15"
-            android:hint="Answer 4"
+            android:hint="@string/answer4"
             android:maxLength="100"
             android:inputType="text" />
 
@@ -146,7 +146,9 @@
             android:layout_marginLeft="70dp"
             android:layout_alignParentStart="true"
             android:onClick="createNewQuestion"
-            android:text="Done" />
+            android:textStyle="italic"
+            android:text="@string/done"
+            android:background="@drawable/pink_button"/>
 
         <Button
             android:id="@+id/newQuestionCancelButton"
@@ -157,7 +159,9 @@
             android:layout_below="@id/newQuestionAnswer4"
             android:layout_marginRight="70dp"
             android:onClick="cancelNewQuestion"
-            android:text="Cancel" />
+            android:textStyle="italic"
+            android:text="@string/cancel"
+            android:background="@drawable/pink_button"/>
 
 
     </RelativeLayout>

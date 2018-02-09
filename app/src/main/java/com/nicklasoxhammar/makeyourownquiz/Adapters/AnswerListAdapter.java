@@ -54,6 +54,8 @@ public class AnswerListAdapter extends RecyclerView.Adapter<AnswerListAdapter.Vi
         this.questions = questions;
         llm = linearLayoutManager;
 
+
+
     }
 
     // Create new views (invoked by the layout manager)
@@ -76,9 +78,9 @@ public class AnswerListAdapter extends RecyclerView.Adapter<AnswerListAdapter.Vi
 
         question = questions.get(position);
 
-        holder.vQuestion.setText(Html.fromHtml("<b>Question:</b>  " + question.getQuestion()));
-        holder.vAnswer.setText(Html.fromHtml("<b>Your answer:</b>  " + question.getAnswer()));
-        holder.vCorrectAnswer.setText(Html.fromHtml("<b>Correct answer:</b>  " + question.getCorrectAnswer()));
+        holder.vQuestion.setText(Html.fromHtml("<b>"+ mContext.getResources().getString(R.string.question) + "</b>" + question.getQuestion()));
+        holder.vAnswer.setText(Html.fromHtml("<b>"+ mContext.getResources().getString(R.string.yourAnswer) + "</b>" + question.getAnswer()));
+        holder.vCorrectAnswer.setText(Html.fromHtml("<b>" + mContext.getResources().getString(R.string.correctAnswer) + "</b> " + question.getCorrectAnswer()));
 
         if(question.getAnsweredCorrectly()){
 

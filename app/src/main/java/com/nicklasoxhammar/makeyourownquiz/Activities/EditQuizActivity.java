@@ -141,7 +141,7 @@ public class EditQuizActivity extends AppCompatActivity {
 
 
         if(questionTitle.getText().toString().equals("")){
-            Toast toast = Toast.makeText(getApplicationContext(), "You forgot to write the question!", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.forgotToWriteQuestion), Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
@@ -150,7 +150,7 @@ public class EditQuizActivity extends AppCompatActivity {
 
             if (answer.equals("")){
 
-                Toast toast = Toast.makeText(getApplicationContext(), "Please fill in all answers!", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.fillInAnswers), Toast.LENGTH_SHORT);
                 toast.show();
                 return;
             }
@@ -174,10 +174,10 @@ public class EditQuizActivity extends AppCompatActivity {
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
-        builder.setTitle("Confirm delete");
-        builder.setMessage("Are you sure you want to delete this quiz?");
+        builder.setTitle(getResources().getString(R.string.confirmDelete));
+        builder.setMessage(getResources().getString(R.string.areYouSureDeleteQuiz));
 
-        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(getResources().getString(R.string.yes), new DialogInterface.OnClickListener() {
 
             public void onClick(DialogInterface dialog, int which) {
 
@@ -198,7 +198,7 @@ public class EditQuizActivity extends AppCompatActivity {
                 prefsEditor.putString("myQuizzes", json);
                 prefsEditor.commit();
 
-                Toast toast = Toast.makeText(getApplicationContext(), "Quiz deleted!", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.quizDeleted), Toast.LENGTH_SHORT);
                 toast.show();
 
                 Intent intent = new Intent(EditQuizActivity.this, PlayQuizActivity.class);
@@ -208,7 +208,7 @@ public class EditQuizActivity extends AppCompatActivity {
             }
         });
 
-        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(getResources().getString(R.string.no), new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int which) {
@@ -226,7 +226,7 @@ public class EditQuizActivity extends AppCompatActivity {
     public void applyChange(View view){
 
         if (questions.isEmpty()) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Add some questions!", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.forgotToAddQuestions), Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
@@ -251,7 +251,7 @@ public class EditQuizActivity extends AppCompatActivity {
         prefsEditor.putString("myQuizzes", json);
         prefsEditor.commit();
 
-        Toast toast = Toast.makeText(getApplicationContext(), "Changes Applied!", Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.changesApplied), Toast.LENGTH_SHORT);
         toast.show();
 
         Intent intent = new Intent(EditQuizActivity.this, PlayQuizActivity.class);

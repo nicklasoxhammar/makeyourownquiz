@@ -92,7 +92,7 @@ public class CreateNewQuizActivity extends AppCompatActivity {
 
 
         if(questionTitle.getText().toString().equals("")){
-            Toast toast = Toast.makeText(getApplicationContext(), "You forgot to write the question!", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.forgotToWriteQuestion), Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
@@ -101,7 +101,7 @@ public class CreateNewQuizActivity extends AppCompatActivity {
 
             if (answer.equals("")){
 
-                Toast toast = Toast.makeText(getApplicationContext(), "Please fill in all answers!", Toast.LENGTH_SHORT);
+                Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.fillInAnswers), Toast.LENGTH_SHORT);
                 toast.show();
                 return;
             }
@@ -143,13 +143,13 @@ public class CreateNewQuizActivity extends AppCompatActivity {
 
 
         if (quizTitle.getText().toString().equals("")) {
-            Toast toast = Toast.makeText(getApplicationContext(), "You forgot to write the quiz name!", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.forgotToWriteQuizName), Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
 
         if (questions.isEmpty()) {
-            Toast toast = Toast.makeText(getApplicationContext(), "Add some questions!", Toast.LENGTH_SHORT);
+            Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.forgotToAddQuestions), Toast.LENGTH_SHORT);
             toast.show();
             return;
         }
@@ -178,7 +178,7 @@ public class CreateNewQuizActivity extends AppCompatActivity {
         prefsEditor.putString("myQuizzes", json);
         prefsEditor.commit();
 
-        Toast toast = Toast.makeText(getApplicationContext(), "Quiz created!", Toast.LENGTH_SHORT);
+        Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.quizCreated), Toast.LENGTH_SHORT);
         toast.show();
 
         Intent intent = new Intent(CreateNewQuizActivity.this, PlayQuizActivity.class);

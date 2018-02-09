@@ -78,8 +78,8 @@ public static class ViewHolder extends RecyclerView.ViewHolder {
 
         question = questions.get(position);
 
-        holder.vQuestion.setText(Html.fromHtml("<b>Question:</b>  " + question.getQuestion()));
-        holder.vCorrectAnswer.setText(Html.fromHtml("<b>Correct answer:</b>  " + question.getCorrectAnswer()));
+        holder.vQuestion.setText(Html.fromHtml("<b>"+ mContext.getResources().getString(R.string.question) + "</b>" + question.getQuestion()));
+        holder.vCorrectAnswer.setText(Html.fromHtml("<b>" + mContext.getResources().getString(R.string.correctAnswer) + "</b> " + question.getCorrectAnswer()));
         holder.vDeleteQuestionButton.setTag(question.getQuestion());
 
 

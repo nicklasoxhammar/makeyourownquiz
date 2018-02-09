@@ -20,7 +20,7 @@
             android:layout_marginBottom="20dp"
             android:textStyle="bold"
             android:textSize="18dp"
-            android:text="My Quizzes" />
+            android:text="@string/myQuizzes" />
 
 
 
@@ -187,7 +187,7 @@
             android:layout_toLeftOf="@id/playAgainMainMenuBuffer"
             android:onClick="playAgain"
             android:layout_alignParentBottom="true"
-            android:text="Play Again"
+            android:text="@string/playAgain"
             android:layout_marginBottom="5dp"
             android:padding="5dp"
             android:textAllCaps="false"
@@ -215,7 +215,7 @@
             android:background="@drawable/pink_button"
             android:textAllCaps="false"
             android:textStyle="italic"
-            android:text="Main Menu" />
+            android:text="@string/mainMenu" />
 
 
 

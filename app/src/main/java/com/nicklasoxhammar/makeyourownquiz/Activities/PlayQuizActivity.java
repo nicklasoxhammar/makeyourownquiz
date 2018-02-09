@@ -96,7 +96,7 @@ public class PlayQuizActivity extends AppCompatActivity {
             quizzesRecyclerView.setAdapter(mAdapterQuiz);
         }else{
 
-            Toast toast = Toast.makeText(getApplicationContext(), "You haven't created any quizzes, head back and create one! :)", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.noQuizzesCreated), Toast.LENGTH_LONG);
             toast.show();
 
         }
