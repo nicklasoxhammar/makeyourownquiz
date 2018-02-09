@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -77,8 +78,8 @@ public static class ViewHolder extends RecyclerView.ViewHolder {
 
         question = questions.get(position);
 
-        holder.vQuestion.setText(question.getQuestion());
-        holder.vCorrectAnswer.setText("Correct answer: " + question.getCorrectAnswer());
+        holder.vQuestion.setText(Html.fromHtml("<b>Question:</b>  " + question.getQuestion()));
+        holder.vCorrectAnswer.setText(Html.fromHtml("<b>Correct answer:</b>  " + question.getCorrectAnswer()));
         holder.vDeleteQuestionButton.setTag(question.getQuestion());
 
 

@@ -7,6 +7,7 @@
         android:id="@+id/newQuizMainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/transparent"
         android:visibility="visible">
 
     <EditText
@@ -16,7 +17,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        android:ems="10"
+        android:ems="15"
         android:maxLength="30"
         android:hint="Quiz Name" />
 
@@ -25,23 +26,27 @@
             android:layout_below="@+id/quizNameEditText"
             android:scrollbars="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="100dp"
+            android:layout_height="match_parent"
+            android:paddingBottom="70dp"
+            android:clipToPadding="false"
             />
 
     <Button
         android:id="@+id/addQuestionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@id/createButtonsBuffer"
         android:onClick="addQuestion"
-        android:text="Add Question" />
+        android:background="@drawable/pink_button"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:text="Add&#10;Question" />
 
         <Button
             android:id="@+id/createButtonsBuffer"
-            android:layout_width="50dp"
+            android:layout_width="60dp"
             android:layout_height="10dp"
             android:layout_centerHorizontal="true"
             android:visibility="invisible"
@@ -54,9 +59,12 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/createButtonsBuffer"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="20dp"
         android:onClick="createQuiz"
-        android:text="Create Quiz" />
+        android:background="@drawable/pink_button"
+        android:padding="5dp"
+        android:textStyle="bold"
+        android:text="Create&#10;Quiz" />
 
     </RelativeLayout>
 
@@ -74,7 +82,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
-            android:ems="10"
+            android:ems="15"
             android:inputType="text"
             android:maxLength="100"
             android:hint="Question?" />
