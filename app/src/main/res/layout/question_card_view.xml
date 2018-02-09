@@ -53,6 +53,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:onClick="deleteQuestion"
+                android:background="@drawable/delete_button_background"
                 card_view:srcCompat="@android:drawable/ic_menu_delete" />
 
         </RelativeLayout>

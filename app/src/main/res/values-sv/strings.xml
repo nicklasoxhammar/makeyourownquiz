@@ -16,39 +16,21 @@
     <string name="cancel">Cancel</string>
     <string name="newQuiz">New quiz</string>
     <string name="play">Play</string>
-    <string name="createQuiz">Create&#10;quiz</string>
+    <string name="createQuiz">Create quiz</string>
     <string name="createNewQuiz">Create new quiz</string>
-    <string name="addQuestion">Add&#10;question</string>
-    <string name="playAgain">Play again</string>
-    <string name="mainMenu">Main menu</string>
-    <string name="deleteQuiz">Delete&#10;quiz</string>
-    <string name="applyChange">Apply&#10;change</string>
+    <string name="addQuestion">Add question</string>
 
-    
+
     <!-- Toasts -->
     <string name="forgotToWriteQuestion">You forgot to write the question!</string>
     <string name="fillInAnswers">Please fill in all answers!</string>
     <string name="forgotToWriteQuizName">You forgot to write the quiz name!</string>
     <string name="forgotToAddQuestions">Add some questions!</string>
     <string name="quizCreated">Quiz created!</string>
-    <string name="quizDeleted">Quiz deleted!</string>
 
     <!-- Titles -->
     <string name="myQuizzes">My quizzes</string>
 
-    <!-- Confirm -->
-    <string name="confirmDelete">Confirm delete</string>
-    <string name="areYouSureDeleteQuiz">Are you sure you want to delete this quiz?</string>
-    <string name="no">No</string>
-    <string name="yes">Yes</string>
-
-    <!-- Card stuff -->
-    <string name="question">Question: </string>
-    <string name="yourAnswer">Your answer: </string>
-    <string name="correctAnswer">Correct answer: </string>
 
 
 </resources>
-
-
-

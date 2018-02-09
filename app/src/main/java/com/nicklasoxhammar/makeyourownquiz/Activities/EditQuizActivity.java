@@ -175,7 +175,7 @@ public class EditQuizActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
 
         builder.setTitle("Confirm delete");
-        builder.setMessage("Are you sure?");
+        builder.setMessage("Are you sure you want to delete this quiz?");
 
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
 
