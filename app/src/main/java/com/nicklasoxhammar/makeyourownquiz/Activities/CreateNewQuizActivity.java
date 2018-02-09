@@ -181,7 +181,7 @@ public class CreateNewQuizActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(getApplicationContext(), "Quiz created!", Toast.LENGTH_SHORT);
         toast.show();
 
-        Intent intent = new Intent(CreateNewQuizActivity.this, MainActivity.class);
+        Intent intent = new Intent(CreateNewQuizActivity.this, PlayQuizActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();

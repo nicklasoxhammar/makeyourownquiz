@@ -19,6 +19,7 @@
         android:layout_marginTop="18dp"
         android:ems="15"
         android:maxLength="30"
+        android:singleLine="true"
         android:hint="Quiz Name" />
 
         <android.support.v7.widget.RecyclerView
@@ -41,7 +42,7 @@
         android:onClick="addQuestion"
         android:background="@drawable/pink_button"
         android:padding="5dp"
-        android:textStyle="bold"
+        android:textStyle="italic"
         android:text="Add&#10;Question" />
 
         <Button
@@ -63,7 +64,7 @@
         android:onClick="createQuiz"
         android:background="@drawable/pink_button"
         android:padding="5dp"
-        android:textStyle="bold"
+        android:textStyle="italic"
         android:text="Create&#10;Quiz" />
 
     </RelativeLayout>

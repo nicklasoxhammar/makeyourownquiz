@@ -29,7 +29,7 @@
         android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingBottom="130dp"
+        android:paddingBottom="75dp"
         android:clipToPadding="false"
 
         />
@@ -40,12 +40,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@id/editButtonsBuffer"
-        android:layout_marginBottom="80dp"
+        android:layout_toLeftOf="@id/deleteQuizButton"
+        android:layout_marginBottom="20dp"
         android:onClick="addQuestion"
         android:background="@drawable/pink_button"
         android:padding="5dp"
-        android:text="Add Question" />
+        android:layout_marginRight="20dp"
+        android:text="Add&#10;Question" />
 
         <Button
             android:id="@+id/editButtonsBuffer"
@@ -61,12 +62,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@id/editButtonsBuffer"
-        android:layout_marginBottom="80dp"
+        android:layout_toRightOf="@id/deleteQuizButton"
+        android:layout_marginBottom="20dp"
         android:onClick="applyChange"
         android:background="@drawable/pink_button"
         android:padding="5dp"
-        android:text="Apply Change" />
+        android:layout_marginLeft="20dp"
+        android:text="Apply&#10;Change" />
 
     <Button
         android:id="@+id/deleteQuizButton"
@@ -79,7 +81,7 @@
         android:background="@drawable/red_button"
         android:padding="5dp"
         android:textColor="@color/white"
-        android:text="Delete quiz" />
+        android:text="Delete&#10;quiz" />
 
     </RelativeLayout>
 

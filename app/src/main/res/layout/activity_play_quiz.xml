@@ -7,7 +7,8 @@
         android:id="@+id/my_quizzes_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:visibility="visible">
+        android:visibility="visible"
+        android:background="@color/mainBackgroundColor">
 
         <TextView
             android:id="@+id/myQuizzesTitleTextView"
@@ -190,6 +191,7 @@
             android:layout_marginBottom="5dp"
             android:padding="5dp"
             android:textAllCaps="false"
+            android:textStyle="italic"
             android:background="@drawable/pink_button"/>
 
         <Button
@@ -212,6 +214,7 @@
             android:padding="5dp"
             android:background="@drawable/pink_button"
             android:textAllCaps="false"
+            android:textStyle="italic"
             android:text="Main Menu" />
 
 

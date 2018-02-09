@@ -4,25 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.nicklasoxhammar.makeyourownquiz.Activities.MainActivity">
+    tools:context="com.nicklasoxhammar.makeyourownquiz.Activities.MainActivity"
+    android:background="@color/mainBackgroundColor">
 
 
     <Button
         android:id="@+id/playbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="193dp"
-        android:onClick="startNewQuiz"
-        android:text="Create new quiz!" />
-
-    <Button
-        android:id="@+id/createquizbutton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/playbutton"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:onClick="playQuiz"
-        android:text="Play" />
+        android:text="Play"
+        android:textStyle="italic"
+        android:background="@drawable/pink_button"/>
+
+    <Button
+        android:id="@+id/createQuizButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/playbutton"
+        android:layout_centerHorizontal="true"
+        android:onClick="startNewQuiz"
+        android:text="Create new quiz"
+        android:layout_marginTop="20dp"
+        android:textStyle="italic"
+        android:padding="5dp"
+        android:background="@drawable/pink_button"/>
+
 </RelativeLayout>

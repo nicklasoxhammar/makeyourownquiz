@@ -1,5 +1,7 @@
 package com.nicklasoxhammar.makeyourownquiz.Activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -170,29 +172,54 @@ public class EditQuizActivity extends AppCompatActivity {
 
     public void deleteQuiz(View view){
 
-        for (Iterator<Quiz> it = quizzes.iterator(); it.hasNext();) {
-            Quiz q = it.next();
-            if(q.getQuizTitle().equals(quizName)) {
-                it.remove();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Confirm delete");
+        builder.setMessage("Are you sure?");
+
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+            public void onClick(DialogInterface dialog, int which) {
+
+                dialog.dismiss();
+
+                for (Iterator<Quiz> it = quizzes.iterator(); it.hasNext(); ) {
+                    Quiz q = it.next();
+                    if (q.getQuizTitle().equals(quizName)) {
+                        it.remove();
+                    }
+                }
+
+                SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
+                prefsEditor.remove("myQuizzes");
+                prefsEditor.commit();
+
+                json = gson.toJson(quizzes);
+                prefsEditor.putString("myQuizzes", json);
+                prefsEditor.commit();
+
+                Toast toast = Toast.makeText(getApplicationContext(), "Quiz deleted!", Toast.LENGTH_SHORT);
+                toast.show();
+
+                Intent intent = new Intent(EditQuizActivity.this, PlayQuizActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                finish();
             }
-        }
+        });
 
-        SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
-        prefsEditor.remove("myQuizzes");
-        prefsEditor.commit();
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
 
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
 
-        json = gson.toJson(quizzes);
-        prefsEditor.putString("myQuizzes", json);
-        prefsEditor.commit();
+                dialog.dismiss();
+                return;
+            }
+        });
 
-        Toast toast = Toast.makeText(getApplicationContext(), "Quiz deleted!", Toast.LENGTH_SHORT);
-        toast.show();
-
-        Intent intent = new Intent(EditQuizActivity.this, PlayQuizActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
-        finish();
+        AlertDialog alert = builder.create();
+        alert.show();
 
     }
 
