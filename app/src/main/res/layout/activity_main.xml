@@ -17,6 +17,7 @@
         android:onClick="playQuiz"
         android:text="@string/play"
         android:textStyle="italic"
+        android:textAllCaps="false"
         android:background="@drawable/pink_button"/>
 
     <Button
@@ -30,6 +31,7 @@
         android:layout_marginTop="20dp"
         android:textStyle="italic"
         android:padding="5dp"
+        android:textAllCaps="false"
         android:background="@drawable/pink_button"/>
 
 </RelativeLayout>

@@ -43,6 +43,7 @@
         android:background="@drawable/pink_button"
         android:padding="5dp"
         android:textStyle="italic"
+        android:textAllCaps="false"
         android:text="@string/addQuestion" />
 
         <Button
@@ -65,6 +66,7 @@
         android:background="@drawable/pink_button"
         android:padding="5dp"
         android:textStyle="italic"
+        android:textAllCaps="false"
         android:text="@string/createQuiz" />
 
     </RelativeLayout>
@@ -148,6 +150,7 @@
             android:onClick="createNewQuestion"
             android:textStyle="italic"
             android:text="@string/done"
+            android:textAllCaps="false"
             android:background="@drawable/pink_button"/>
 
         <Button
@@ -161,6 +164,7 @@
             android:onClick="cancelNewQuestion"
             android:textStyle="italic"
             android:text="@string/cancel"
+            android:textAllCaps="false"
             android:background="@drawable/pink_button"/>
 
 

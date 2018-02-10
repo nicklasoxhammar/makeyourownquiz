@@ -174,7 +174,7 @@
         android:layout_height="match_parent"
         android:layout_below="@id/scoreTextView"
         android:clipToPadding="false"
-        android:paddingBottom="60dp"
+        android:paddingBottom="70dp"
         android:layout_marginTop="5dp"
 
 
@@ -188,7 +188,7 @@
             android:onClick="playAgain"
             android:layout_alignParentBottom="true"
             android:text="@string/playAgain"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="20dp"
             android:padding="5dp"
             android:textAllCaps="false"
             android:textStyle="italic"
@@ -210,7 +210,7 @@
             android:layout_toRightOf="@id/playAgainMainMenuBuffer"
             android:onClick="mainMenu"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="20dp"
             android:padding="5dp"
             android:background="@drawable/pink_button"
             android:textAllCaps="false"
