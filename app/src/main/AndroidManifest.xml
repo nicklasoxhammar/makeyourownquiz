@@ -18,12 +18,12 @@
         </activity>
         <activity
             android:name=".Activities.CreateNewQuizActivity"
-            android:label="New Quiz"
+            android:label="@string/newQuizLabel"
             android:screenOrientation="portrait">
         </activity>
         <activity
             android:name=".Activities.PlayQuizActivity"
-            android:label="Quiz Time!"
+            android:label="@string/quizTimeLabel"
             android:parentActivityName="com.nicklasoxhammar.makeyourownquiz.Activities.MainActivity"
             android:screenOrientation="portrait"
                 >
@@ -33,7 +33,7 @@
         </activity>
         <activity
             android:name=".Activities.EditQuizActivity"
-            android:label="Edit Quiz"
+            android:label="@string/editQuizLabel"
             android:screenOrientation="portrait">
         </activity>
         <provider

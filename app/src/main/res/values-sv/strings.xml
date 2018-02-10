@@ -1,5 +1,10 @@
 <resources>
-    <string name="app_name">makeyourownquiz</string>
+
+    <!-- Labels-->
+    <string name="app_name">Go quiz yourself</string>
+    <string name="quizTimeLabel">Quiz dags!</string>
+    <string name="editQuizLabel">Redigera quiz</string>
+    <string name="newQuizLabel">Nytt quiz</string>
 
 
     <!-- Hints -->
