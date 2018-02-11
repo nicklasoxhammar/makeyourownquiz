@@ -1,5 +1,6 @@
 package com.nicklasoxhammar.makeyourownquiz.Activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -24,6 +25,8 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.nicklasoxhammar.makeyourownquiz.Activities.AddQuestionActivity.REQUEST_CODE;
+
 /**
  * Created by Nick on 2018-02-01.
  */
@@ -32,19 +35,7 @@ public class CreateNewQuizActivity extends AppCompatActivity {
 
     public EditText quizTitle;
 
-    public ArrayList<String> questionAnswers;
-
-    public EditText questionTitle;
-    public EditText questionAnswer1;
-    public EditText questionAnswer2;
-    public EditText questionAnswer3;
-    public EditText questionAnswer4;
-
-
     public ArrayList<Question> questions;
-
-    RelativeLayout newQuizMainLayout;
-    RelativeLayout newQuestionLayout;
 
     RecyclerView questionsRecyclerView;
     RecyclerView.Adapter mAdapter;
@@ -55,69 +46,11 @@ public class CreateNewQuizActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_quiz);
 
-        newQuizMainLayout = findViewById(R.id.newQuizMainLayout);
-        newQuestionLayout = findViewById(R.id.newQuestionLayout);
 
         questionsRecyclerView = findViewById(R.id.questions_recycler_view);
 
-        questionTitle = findViewById(R.id.newQuestionTitle);
-        questionAnswer1 = findViewById(R.id.newQuestionAnswer1);
-        questionAnswer2 = findViewById(R.id.newQuestionAnswer2);
-        questionAnswer3 = findViewById(R.id.newQuestionAnswer3);
-        questionAnswer4 = findViewById(R.id.newQuestionAnswer4);
-
         questions = new ArrayList<Question>();
-
-
         quizTitle = findViewById(R.id.quizNameEditText);
-
-    }
-
-
-    public void addQuestion(View view){
-
-        newQuizMainLayout.setVisibility(View.GONE);
-        newQuestionLayout.setVisibility(View.VISIBLE);
-
-    }
-
-    public void createNewQuestion(View view){
-
-        questionAnswers = new ArrayList<String>();
-
-        questionAnswers.add(questionAnswer1.getText().toString());
-        questionAnswers.add(questionAnswer2.getText().toString());
-        questionAnswers.add(questionAnswer3.getText().toString());
-        questionAnswers.add(questionAnswer4.getText().toString());
-
-
-        if(questionTitle.getText().toString().equals("")){
-            Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.forgotToWriteQuestion), Toast.LENGTH_SHORT);
-            toast.show();
-            return;
-        }
-
-        for (String answer : questionAnswers){
-
-            if (answer.equals("")){
-
-                Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.fillInAnswers), Toast.LENGTH_SHORT);
-                toast.show();
-                return;
-            }
-        }
-
-
-        questions.add(new Question(questionTitle.getText().toString(), questionAnswers));
-
-        questionTitle.setText("");
-        questionAnswer1.setText("");
-        questionAnswer2.setText("");
-        questionAnswer3.setText("");
-        questionAnswer4.setText("");
-
-        newQuizMainLayout.setVisibility(View.VISIBLE);
-        newQuestionLayout.setVisibility(View.GONE);
 
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(this);
         questionsRecyclerView.setLayoutManager(mLayoutManager);
@@ -126,20 +59,19 @@ public class CreateNewQuizActivity extends AppCompatActivity {
 
     }
 
-    public void cancelNewQuestion(View view){
 
-        questionTitle.setText("");
-        questionAnswer1.setText("");
-        questionAnswer2.setText("");
-        questionAnswer3.setText("");
-        questionAnswer4.setText("");
+    public void addQuestion(View view){
 
-        newQuizMainLayout.setVisibility(View.VISIBLE);
-        newQuestionLayout.setVisibility(View.GONE);
+        Intent i = new Intent(this, AddQuestionActivity.class);
+        startActivityForResult(i, REQUEST_CODE);
 
     }
 
+
     public void createQuiz(View view) {
+
+
+        //TODO: check if another quiz has the same name before creating!
 
 
         if (quizTitle.getText().toString().equals("")) {
@@ -155,7 +87,6 @@ public class CreateNewQuizActivity extends AppCompatActivity {
         }
 
         Quiz quiz = new Quiz(questions, quizTitle.getText().toString());
-
 
         SharedPreferences appSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this.getApplicationContext());
         SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
@@ -198,10 +129,24 @@ public class CreateNewQuizActivity extends AppCompatActivity {
             }
         }
 
-
-
-
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == REQUEST_CODE) {
+
+            if (resultCode == Activity.RESULT_OK) {
+               String questionTitle = data.getStringExtra("question");
+               ArrayList<String> answers = data.getStringArrayListExtra("answers");
+
+                questions.add(new Question(questionTitle, answers));
+                mAdapter.notifyDataSetChanged();
+
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+
+            }
+        }
+    }
 
 }

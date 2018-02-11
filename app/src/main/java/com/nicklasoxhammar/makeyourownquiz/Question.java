@@ -1,5 +1,7 @@
 package com.nicklasoxhammar.makeyourownquiz;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -44,9 +46,9 @@ public class Question {
         return correctAnswer;
     }
 
-    public void setAnsweredCorrectly(boolean answer){
+    public void setAnsweredCorrectly(boolean b){
 
-        answeredCorrectly = answer;
+        answeredCorrectly = b;
 
     }
 
@@ -70,7 +72,6 @@ public class Question {
         Collections.shuffle(answers);
 
     }
-
 
 
 }

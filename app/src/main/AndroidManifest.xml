@@ -36,6 +36,11 @@
             android:label="@string/editQuizLabel"
             android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".Activities.AddQuestionActivity"
+            android:label="@string/editQuizLabel"
+            android:screenOrientation="portrait">
+        </activity>
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.nicklasoxhammar.makeyourownquiz.fileprovider"

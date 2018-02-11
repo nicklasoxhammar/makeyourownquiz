@@ -4,7 +4,7 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:id="@+id/editQuizMainLayout"
+        android:id="@+id/editQuizLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="visible"
@@ -87,103 +87,6 @@
         android:textColor="@color/white"
         android:textAllCaps="false"
         android:text="@string/deleteQuiz" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/editNewQuestionLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:visibility="gone">
-
-
-        <EditText
-            android:id="@+id/editNewQuestionTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="30dp"
-            android:ems="15"
-            android:inputType="text"
-            android:maxLength="100"
-            android:hint="@string/newQuestionTitle" />
-
-        <EditText
-            android:id="@+id/editNewQuestionAnswer1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editNewQuestionTitle"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="35dp"
-            android:ems="15"
-            android:hint="@string/writeCorrectAnswer"
-            android:maxLength="100"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/editNewQuestionAnswer2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/editNewQuestionAnswer1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:ems="15"
-            android:hint="@string/answer2"
-            android:maxLength="100"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/editNewQuestionAnswer3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editNewQuestionAnswer2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:ems="15"
-            android:hint="@string/answer3"
-            android:maxLength="100"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/editNewQuestionAnswer4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/editNewQuestionAnswer3"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:ems="15"
-            android:hint="@string/answer4"
-            android:maxLength="100"
-            android:inputType="text" />
-
-        <Button
-            android:id="@+id/editNewQuestionDoneButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/newQuestionAnswer4"
-            android:layout_below="@+id/editNewQuestionAnswer4"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="70dp"
-            android:layout_alignParentStart="true"
-            android:onClick="createNewQuestion"
-            android:text="@string/done"
-            android:textAllCaps="false"
-            android:background="@drawable/pink_button"/>
-
-        <Button
-            android:id="@+id/editNewQuestionCancelButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="30dp"
-            android:layout_below="@id/editNewQuestionAnswer4"
-            android:layout_marginRight="70dp"
-            android:onClick="cancelNewQuestion"
-            android:textAllCaps="false"
-            android:background="@drawable/pink_button"
-            android:text="@string/cancel" />
-
 
     </RelativeLayout>
 
