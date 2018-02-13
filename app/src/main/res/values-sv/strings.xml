@@ -5,6 +5,7 @@
     <string name="quizTimeLabel">Quiz dags!</string>
     <string name="editQuizLabel">Redigera quiz</string>
     <string name="newQuizLabel">Nytt quiz</string>
+    <string name="newQuestionLabel">Ny fråga</string>
 
 
     <!-- Hints -->
