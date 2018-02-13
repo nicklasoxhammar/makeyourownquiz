@@ -2,7 +2,9 @@ package com.nicklasoxhammar.makeyourownquiz.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
@@ -136,41 +138,50 @@ public class PlayQuizActivity extends AppCompatActivity {
 
 
     public void showNextQuestion(){
-
         currentQuestion = quiz.getQuestion();
 
         answer1.setText(currentQuestion.getAnswers(0));
+        answer1.setBackground(getResources().getDrawable(R.drawable.answer_button));
+
         answer2.setText(currentQuestion.getAnswers(1));
+        answer2.setBackground(getResources().getDrawable(R.drawable.answer_button));
+
         answer3.setText(currentQuestion.getAnswers(2));
+        answer3.setBackground(getResources().getDrawable(R.drawable.answer_button));
+
         answer4.setText(currentQuestion.getAnswers(3));
+        answer4.setBackground(getResources().getDrawable(R.drawable.answer_button));
+
+
         question.setText(currentQuestion.getQuestion());
 
     }
 
     public void checkAnswer(View view){
 
-        Button v = (Button) view;
-
-        currentQuestion.setAnswer(v.getText().toString());
         Button button = (Button) view;
+        currentQuestion.setAnswer(button.getText().toString());
 
         if(button.getText().toString().equals(currentQuestion.getCorrectAnswer())) {
 
             quiz.increaseScore();
             currentQuestion.setAnsweredCorrectly(true);
+            button.setBackground(getResources().getDrawable(R.drawable.answer_button_right));
         }else{
             currentQuestion.setAnsweredCorrectly(false);
+            button.setBackground(getResources().getDrawable(R.drawable.answer_button_wrong));
         }
 
-
-            if (quiz.lastQuestion()){
-                showEndScreen();
-            }else{
-
-                showNextQuestion();
-
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            public void run() {
+                if (quiz.lastQuestion()){
+                    showEndScreen();
+                }else{
+                    showNextQuestion();
+                }
             }
-
+        }, 300);
 
     }
 
