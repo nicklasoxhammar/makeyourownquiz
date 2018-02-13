@@ -70,10 +70,6 @@ public class CreateNewQuizActivity extends AppCompatActivity {
 
     public void createQuiz(View view) {
 
-
-        //TODO: check if another quiz has the same name before creating!
-
-
         if (quizTitle.getText().toString().equals("")) {
             Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.forgotToWriteQuizName), Toast.LENGTH_SHORT);
             toast.show();
@@ -102,6 +98,13 @@ public class CreateNewQuizActivity extends AppCompatActivity {
             quizzes = new ArrayList<Quiz>();
             quizzes.add(quiz);
         } else {
+            for (Quiz q : quizzes){
+                if (q.getQuizTitle().equals(quizTitle.getText().toString())){
+                    Toast toast = Toast.makeText(getApplicationContext(), getResources().getString(R.string.quizTitleExists), Toast.LENGTH_SHORT);
+                    toast.show();
+                    return;
+                }
+            }
             quizzes.add(quiz);
         }
 

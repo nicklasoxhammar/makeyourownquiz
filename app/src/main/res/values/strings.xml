@@ -41,6 +41,7 @@
     <string name="quizDeleted">Quiz deleted!</string>
     <string name="changesApplied">Changes applied!</string>
     <string name="noQuizzesCreated">You haven\'t created any quizzes, head back and create one!</string>
+    <string name="quizTitleExists">You already have a quiz with this title, please choose another!</string>
 
     <!-- Titles -->
     <string name="myQuizzes">My quizzes</string>

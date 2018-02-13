@@ -39,6 +39,7 @@
     <string name="quizDeleted">Quiz raderat!</string>
     <string name="changesApplied">Ändringar tillämpade!</string>
     <string name="noQuizzesCreated">Du har inte skapat några quizzes, gå tillbaks och skapa en!</string>
+    <string name="quizTitleExists">Du har redan ett quiz med denna titel, prova en annan!</string>
 
     <!-- Titles -->
     <string name="myQuizzes">Mina quizzes</string>
