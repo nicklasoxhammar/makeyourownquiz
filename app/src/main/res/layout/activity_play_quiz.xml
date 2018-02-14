@@ -96,6 +96,7 @@
                 android:layout_rowWeight="1"
                 android:soundEffectsEnabled="false"
                 android:text="Answer2"
+                android:layout_gravity="fill"
                 android:onClick="checkAnswer"
                 android:tag="2"
                 android:padding="10dp"

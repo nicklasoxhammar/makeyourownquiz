@@ -2,19 +2,15 @@ package com.nicklasoxhammar.makeyourownquiz.Activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ListView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,7 +19,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.nicklasoxhammar.makeyourownquiz.Adapters.AnswerListAdapter;
 import com.nicklasoxhammar.makeyourownquiz.Adapters.QuizListAdapter;
-import com.nicklasoxhammar.makeyourownquiz.ExampleQuiz;
 import com.nicklasoxhammar.makeyourownquiz.Question;
 import com.nicklasoxhammar.makeyourownquiz.Quiz;
 import com.nicklasoxhammar.makeyourownquiz.R;
@@ -50,7 +45,7 @@ public class PlayQuizActivity extends AppCompatActivity {
 
     ArrayList<Quiz> quizzes;
 
-    RelativeLayout questionLayout;
+    LinearLayout questionLayout;
     RelativeLayout endScreenLayout;
     RelativeLayout myQuizzesLayout;
 
